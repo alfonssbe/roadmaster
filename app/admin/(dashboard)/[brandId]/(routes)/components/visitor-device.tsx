@@ -11,7 +11,7 @@ type Props = {
 
 export function VisitorDevice(props: Props) {
   return (
-        <div className="shadow-lg py-2 rounded-lg bg-secondary-foreground">
+        <div className="shadow-lg py-2 rounded-lg bg-background">
         <CardHeader className="px-4 py-2">
             <div className="flex items-center">
             <CardTitle className="text-base font-bold text-secondary">Most Device Used by Visitors (30 Days)</CardTitle>
@@ -29,7 +29,7 @@ export function VisitorDevice(props: Props) {
             <XAxis dataKey="device" />
             <YAxis dataKey="users"/>
             <Tooltip />
-            <Bar dataKey="users" fill="#1352db" />
+            <Bar dataKey="users" fill="#ea3038" />
             </BarChart>
         </ResponsiveContainer>
         )}

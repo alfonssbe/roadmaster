@@ -1,4 +1,4 @@
-import { MetadataSingleProducts, Size } from "@/app/(roadmaster)/types";
+import { MetadataSingleProducts } from "@/app/(roadmaster)/types";
 import { redirect } from "next/navigation";
 
 const API=`${process.env.NEXT_PUBLIC_ROOT_URL}/${process.env.NEXT_PUBLIC_FETCH_METADATA_SINGLE_PRODUCT}`;
@@ -15,14 +15,6 @@ const getSingleMetadata = async (productSlug: string): Promise<MetadataSinglePro
     redirect('/');
   }
   if (data){
-    let size = {} as Size;
-    if(data.size!=null){
-      let size2: Size = {
-        label: data.size.value,
-        value: Number(data.size.name)
-      }
-      size = size2  
-    }
 
     let product: MetadataSingleProducts = {
       id: data.id,
@@ -30,8 +22,7 @@ const getSingleMetadata = async (productSlug: string): Promise<MetadataSinglePro
       coverAlt: data.name,
       name: data.name,
       desc: data.description,
-      slug: data.slug,
-      size: size,      
+      slug: data.slug 
     }
     
     return product;
@@ -43,10 +34,6 @@ const getSingleMetadata = async (productSlug: string): Promise<MetadataSinglePro
     name: "",
     desc: "",
     slug: "",
-    size: {
-      value:0,
-      label:'',
-    },
   }
   return product;
 };

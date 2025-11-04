@@ -18,7 +18,6 @@ export async function GET(req: Request, props: { params: Promise<{ brandId: stri
         slug: true,
         name: true,
         id: true,
-        size: true,
       },
       orderBy: {
         name: 'asc'

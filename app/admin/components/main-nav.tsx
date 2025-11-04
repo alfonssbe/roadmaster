@@ -42,12 +42,6 @@ export function MainNav({
     ...(isadmin
       ? [
         {
-          title: "Size",
-          href: `${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}/size`,
-          description:
-            "Show All Sizes.",
-        },
-        {
           title: "Category",
           href: `${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}/category`,
           description:
@@ -73,7 +67,7 @@ export function MainNav({
     <NavigationMenu>
       <NavigationMenuList>
       <NavigationMenuItem>
-            <NavigationMenuLink href={`${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}`} className={`${navigationMenuTriggerStyle()} hover:text-[rgba(19,82,219,1)]`}>
+            <NavigationMenuLink href={`${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}`} className={`${navigationMenuTriggerStyle()} hover:text-primary`}>
               Overview
             </NavigationMenuLink>
         </NavigationMenuItem>
@@ -134,11 +128,6 @@ export function MainNav({
         
         {isadmin? (
           <>
-          <NavigationMenuItem>
-              <NavigationMenuLink href={`${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}/customapi`} className={navigationMenuTriggerStyle()}>
-                Custom API
-              </NavigationMenuLink>
-          </NavigationMenuItem>
           <NavigationMenuItem>
               <NavigationMenuLink href={`${process.env.NEXT_PUBLIC_ADMIN_FOLDER_URL}/${params.brandId}/settings`} className={navigationMenuTriggerStyle()}>
                 Brand Settings

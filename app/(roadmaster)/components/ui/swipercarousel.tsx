@@ -55,14 +55,10 @@ const SwiperCarousel: React.FC<PropType> = (props) => {
                 />
                 </div>
                 <div className="order-2 md:order-1 flex flex-col justify-center items-center md:items-start text-center md:text-left gap-2 md:w-3/5 w-full">
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    {item.series} SERIES
-                  </div>
                   <Separator className="bg-foreground w-56 h-2 md:block hidden" />
                   <h3 className="text-2xl xl:text-3xl font-bold text-foreground">
                     {item.name}
                   </h3>
-                  <h4 className='sr-only'>{item.series} SERIES</h4>
                   <p className="text-sm text-white md:hidden block line-clamp-3 h-[80px] sm:h-[50px]">
                     {item.featuredDesc.length > 150
                       ? `${item.featuredDesc.slice(0, 150)}...`

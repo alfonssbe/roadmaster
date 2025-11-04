@@ -44,27 +44,27 @@ export const FindUs: React.FC<PropType> = (props) => {
             <Link target='_blank' href={logo} className={`flex items-center`}>
             {index==0 ? 
                 <>
-                  <MailIcon size={30} className='text-white hover:text-[rgba(19,82,219,1)]'/>
+                  <MailIcon size={30} className='text-white hover:text-primary'/>
                 </> 
               : 
               index==1 ?  
                 <>
-                  <FacebookIcon size={30} className='text-white hover:text-[rgba(19,82,219,1)]'/>
+                  <FacebookIcon size={30} className='text-white hover:text-primary'/>
                 </>
               : 
               index==2 ?  
                 <>
-                  <PhoneIcon size={30} className='text-white hover:text-[rgba(19,82,219,1)]'/>
+                  <PhoneIcon size={30} className='text-white hover:text-primary'/>
                 </> 
               : 
               index==3 ? 
                 <>
-                  <InstagramIcon size={30} className='text-white hover:text-[rgba(19,82,219,1)]'/>
+                  <InstagramIcon size={30} className='text-white hover:text-primary'/>
                 </>  
               : 
               index==4 ? 
                 <>
-                  <YoutubeIcon size={30} className='text-white hover:text-[rgba(19,82,219,1)]'/>
+                  <YoutubeIcon size={30} className='text-white hover:text-primary'/>
                 </>  
               : 
                 <></>}
@@ -82,27 +82,27 @@ export const FindUs: React.FC<PropType> = (props) => {
             >
               {index==0 ? 
                 <>
-                  <MailIcon size={30} className='text-black hover:text-[rgba(19,82,219,1)]'/>
+                  <MailIcon size={30} className='text-black hover:text-primary'/>
                 </> 
               : 
               index==1 ?  
                 <>
-                  <FacebookIcon size={30} className='text-black hover:text-[rgba(19,82,219,1)]'/>
+                  <FacebookIcon size={30} className='text-black hover:text-primary'/>
                 </>
               : 
               index==2 ?  
                 <>
-                  <PhoneIcon size={30} className='text-black hover:text-[rgba(19,82,219,1)]'/>
+                  <PhoneIcon size={30} className='text-black hover:text-primary'/>
                 </> 
               : 
               index==3 ? 
                 <>
-                  <InstagramIcon size={30} className='text-black hover:text-[rgba(19,82,219,1)]'/>
+                  <InstagramIcon size={30} className='text-black hover:text-primary'/>
                 </>  
               : 
               index==4 ? 
                 <>
-                  <YoutubeIcon size={30} className='text-black hover:text-[rgba(19,82,219,1)]'/>
+                  <YoutubeIcon size={30} className='text-black hover:text-primary'/>
                 </>  
               : 
                 <></>}

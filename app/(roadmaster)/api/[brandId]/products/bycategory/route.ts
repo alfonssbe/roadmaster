@@ -55,12 +55,6 @@ export async function GET(req: Request) {
             url: true
           }
         },
-        size: {
-          select: {
-            name: true,
-            value: true
-          }
-        },
         connectorSpecifications: {
           where: {
             dynamicspecificationId: {

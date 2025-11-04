@@ -6,7 +6,6 @@ export interface FeaturedProducts {
     slug: string;
     featuredImgUrl: string;
     featuredDesc: string;
-    series: string;
 }
 
 export interface NewsType {
@@ -19,11 +18,6 @@ export interface NewsType {
     news_img_url: string;
     event_date: Date;
     updatedAt: string;
-}
-
-export interface Size {
-    value: number;
-    label: string;
 }
 
 export interface Searchbox {
@@ -54,7 +48,6 @@ export interface NavbarProducts {
 
 export interface SingleProducts {
     coverImg: FilesProp;
-    size: Size;
     images_Catalogues: FilesProp[];
     drawing: FilesProp[];
     graph: FilesProp[];
@@ -77,7 +70,6 @@ export interface MetadataSingleProducts {
     slug: string;
     coverUrl: string;
     coverAlt: string;
-    size: Size;
 }
 
 export interface activeSlider{
@@ -166,7 +158,6 @@ export interface ChildSpecificationProp {
 export type SingleProductsType = Prisma.ProductGetPayload<{
   include: {
     cover_img: true;
-    size: true,
     images_catalogues: true,
     drawing_img: true,
     graph_img: true,
@@ -194,9 +185,5 @@ export interface AllProductsJsonType {
 
 export interface AllFilterProductsOnlyType {
   products: AllProductsJsonType
-  size: {
-    name: string
-    value: string
-  },
   specs: ChildSpecificationProp[]
 }

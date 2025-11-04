@@ -21,7 +21,6 @@ export async function GET(req: Request, props: { params: Promise<{ brandId: stri
         name: true,
         slug: true,
         featuredDesc: true,
-        series: true,
         featured_img: {
           select: {
             url: true

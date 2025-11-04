@@ -24,8 +24,8 @@ export default async function DashboardLayout(
         </div>
       </div>
     ):(
-      <div className='bg-primary'>
-      <BannerUpdateObjek />
+      <div className='bg-background'>
+      {/* <BannerUpdateObjek /> */}
       <Navbar />
       {children}
       </div>

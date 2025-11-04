@@ -178,12 +178,7 @@ const AllDriversandFiltersProducts: React.FC<MainProps> = ({
                     if (indexslider === 0) {
                         data.forEach((product) => {
                             let productValue = 0
-                            if(slider.slug==='size'){
-                                productValue = Number(product.size.value)
-                            }
-                            else{
-                                productValue = Number(product.specs.find((val) => val.slug === slider.slug)?.value);
-                            }
+                            productValue = Number(product.specs.find((val) => val.slug === slider.slug)?.value);
                             const bottomValue = Number(slider.bottomRealVal);
                             const topValue = Number(slider.topRealVal);
             
@@ -194,12 +189,7 @@ const AllDriversandFiltersProducts: React.FC<MainProps> = ({
                     } else {
                         tempShowed[indexslider - 1].forEach((product) => {
                             let productValue = 0
-                            if(slider.slug==='size'){
-                                productValue = Number(product.size.value)
-                            }
-                            else{
-                                productValue = Number(product.specs.find((val) => val.slug === slider.slug)?.value);
-                            }
+                            productValue = Number(product.specs.find((val) => val.slug === slider.slug)?.value);
                             const bottomValue = Number(slider.bottomRealVal);
                             const topValue = Number(slider.topRealVal);
             

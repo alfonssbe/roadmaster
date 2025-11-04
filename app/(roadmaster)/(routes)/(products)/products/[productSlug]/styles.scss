@@ -21,10 +21,10 @@
 
   a {
     text-decoration: underline; /* Underline links */
-    color: var(--red, #1352db); /* Link color */
+    color: var(--red, #ea3038); /* Link color */
 
     &:hover {
-      color: var(--red-hover, #0036aa); /* Change color on hover */
+      color: var(--red-hover, #c5131c); /* Change color on hover */
     }
   }
 

@@ -26,10 +26,10 @@
   
     a {
       text-decoration: underline; /* Underline links */
-      color: var(--blue, #1352db); /* Link color */
+      color: var(--blue, #ea3038); /* Link color */
   
       &:hover {
-        color: var(--blue-hover, #0036aa); /* Change color on hover */
+        color: var(--blue-hover, #c5131c); /* Change color on hover */
       }
     }
 

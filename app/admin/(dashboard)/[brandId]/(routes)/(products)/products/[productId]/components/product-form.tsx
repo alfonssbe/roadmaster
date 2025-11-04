@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
-import { Cover_Image, Drawing_Image, Graph_Image, Image_Catalogues, Impedance_Image, multipleDatasheetProduct, Product, Size } from "@prisma/client"
+import { Cover_Image, Drawing_Image, Graph_Image, Image_Catalogues, Impedance_Image, multipleDatasheetProduct, Product } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
@@ -28,11 +28,6 @@ import { Textarea } from "@/app/admin/components/ui/textarea"
 import Link from "next/link"
 import { uploadProductDatasheet } from "@/app/admin/upload-product-datasheet"
 import Image from "next/image"
-import { uploadCoverImage } from "@/app/admin/upload-cover-image"
-import { uploadDrawingImage } from "@/app/admin/upload-drawing-image"
-import { uploadFrequencyResponseImage } from "@/app/admin/upload-frequency-response-image"
-import { uploadImageCatalogues } from "@/app/admin/upload-image-catalogues"
-import { uploadImpedanceImage } from "@/app/admin/upload-impedance-image"
 import { Bold, CirclePlus, File, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Italic, List, ListOrdered, LucideLink, LucideUnlink, Strikethrough, Trash } from "lucide-react"
 
 
@@ -47,6 +42,7 @@ import Text from '@tiptap/extension-text'
 import TextStyle from '@tiptap/extension-text-style'
 import './styles.scss'
 import { Toggle } from "@/app/admin/components/ui/toggle"
+import { uploadImage } from "@/app/admin/upload-image"
 
 
 const formSchema = z.object({
@@ -58,11 +54,9 @@ const formSchema = z.object({
   impedance_img: z.object({ url: z.string() }).array(),
   multipleDatasheetProduct: z.object({ url: z.string() }).array(),
   description: z.string().min(1),
-  sizeId: z.string().min(1),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional(),
   isNewProduct: z.boolean().default(false).optional(),
-  series: z.string().optional(),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>
@@ -76,12 +70,10 @@ interface ProductFormProps {
     impedance_img: Impedance_Image[]
     multipleDatasheetProduct: multipleDatasheetProduct[]
   } | null;
-  sizes: Size[];
 };
 
 export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
-  sizes,
 }) => {
   const params = useParams();
   const router = useRouter();
@@ -122,11 +114,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     impedance_img: [],
     multipleDatasheetProduct: [],
     description: '',
-    sizeId: '',
     isFeatured: false,
     isArchived: false,
     isNewProduct: false,
-    series: '',
   }
 
 
@@ -287,7 +277,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
   
-        const url = await uploadCoverImage(formData);
+        const url = await uploadImage(formData, 'productcoverimage');
         updatedCoverImage.url = url;
         return updatedCoverImage;
       } catch (error) {
@@ -346,7 +336,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
   
-        const url = await uploadDrawingImage(formData);
+        const url = await uploadImage(formData, 'productdrawing');
         updatedDrawingImage.url = url;
         return updatedDrawingImage;
       } catch (error) {
@@ -405,7 +395,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
   
-        const url = await uploadFrequencyResponseImage(formData);
+        const url = await uploadImage(formData, 'productfrequencyresponse');
         updatedFrequencyResponseImage.url = url;
         return updatedFrequencyResponseImage!;
       } catch (error) {
@@ -466,7 +456,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
   
-        const url = await uploadImpedanceImage(formData);
+        const url = await uploadImage(formData, 'productimpedance');
         updatedImpedanceImage.url = url;
         return updatedImpedanceImage;
       } catch (error) {
@@ -529,7 +519,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           if (value) {
             const formData = new FormData();
             formData.append('image', value);
-            const url = await uploadImageCatalogues(formData);
+            const url = await uploadImage(formData, 'productimagecatalogues');
             updatedImageCatalogues[updatedImageCatalogues.length - (file.length - index)].url = url;
           }
         });
@@ -820,35 +810,13 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="sizeId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-bold text-base">Size</FormLabel>
-                  <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger className="bg-white text-black">
-                        <SelectValue defaultValue={field.value} placeholder="Select a size" className="bg-white"/>
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent  className="bg-white text-black">
-                      {sizes.map((size) => (
-                        <SelectItem key={size.id} value={size.id}>{size.name}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             {/* <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold text-base">Description</FormLabel>
-                  <FormDescription className="text-black">For lists only. Give a new space (enter) for each list. If empty, type: - | <Link href={'/images/admin/single_prod_desc_placement.png'} target="blank" className="text-[rgba(19,82,219,1)] hover:underline">Check placement</Link></FormDescription>
+                  <FormDescription className="text-black">For lists only. Give a new space (enter) for each list. If empty, type: - | <Link href={'/images/admin/single_prod_desc_placement.png'} target="blank" className="text-primary hover:underline">Check placement</Link></FormDescription>
                   <FormControl>
                     <Textarea disabled={loading} placeholder="Product description" {...field} className="bg-white text-black" />
                   </FormControl>
@@ -1222,7 +1190,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       Featured
                     </FormLabel>
                     <FormDescription className="text-black">
-                      This product will appear on the homepage slideshow. To be displayed, add the backgorund image through the <b>Featured Products</b> menu. <Link href={'/images/admin/featured_prod_placement.png'} target="blank" className="text-[rgba(19,82,219,1)] hover:underline">Check placement</Link>
+                      This product will appear on the homepage slideshow. To be displayed, add the backgorund image through the <b>Featured Products</b> menu. <Link href={'/images/admin/featured_prod_placement.png'} target="blank" className="text-primary hover:underline">Check placement</Link>
                     </FormDescription>
                   </div>
                 </FormItem>
@@ -1274,22 +1242,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 </FormItem>
               )}
             /> */}
-            <FormField
-              control={form.control}
-              name="series"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-bold text-base">Series</FormLabel>
-                  <FormDescription className="text-black">
-                      This will appear in hero section. <Link href={'/images/admin/single_prod_series_placement.png'} target="blank" className="text-[rgba(19,82,219,1)] hover:underline">Check placement</Link>
-                    </FormDescription>
-                  <FormControl>
-                    <Input disabled={loading || !form.watch("isFeatured") } placeholder="What Series" {...field} className="bg-white text-black"/>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             </div>
           <Button disabled={loading} className="ml-auto" type="submit" variant={'secondary'}>
             {action}

@@ -11,7 +11,7 @@ export function MostVisited(props: Props) {
     const topReports = props.pageReports.slice(0, 10);
     const maxViews = Math.max(...topReports.map(r => Number(r.views) || 0));
     return (
-        <div className="shadow-lg py-2 rounded-lg bg-secondary-foreground">
+        <div className="shadow-lg py-2 rounded-lg bg-background">
         <CardHeader className="px-4 py-2">
             <div className="flex items-center">
             <CardTitle className="text-base font-bold">Top 10 Most Visited Page (7 Days)</CardTitle>
@@ -30,7 +30,7 @@ export function MostVisited(props: Props) {
                         <div key={index} className="relative">
                         <div className="h-8 bg-primary/50 rounded-full overflow-hidden">
                            <div
-                                className="h-full bg-[rgba(19,82,219,1)] rounded-full flex items-center justify-between px-4 transition-all duration-300"
+                                className="h-full bg-primary rounded-full flex items-center justify-between px-4 transition-all duration-300"
                                 style={{ width: `${percent}%` }}
                                 >
                                 <span className="text-xs font-medium text-white truncate">

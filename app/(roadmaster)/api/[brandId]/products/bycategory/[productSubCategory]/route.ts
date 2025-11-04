@@ -75,12 +75,6 @@ export async function GET(req: Request, props: { params: Promise<{ productSubCat
             url: true
           }
         },
-        size: {
-          select: {
-            name: true,
-            value: true
-          }
-        },
         connectorSpecifications: {
           where: {
             dynamicspecificationId: {

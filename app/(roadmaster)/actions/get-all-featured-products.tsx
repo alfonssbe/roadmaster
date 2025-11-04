@@ -24,7 +24,6 @@ const getAllFeaturedProducts = async (): Promise<FeaturedProducts[]> => {
         slug: data[i].slug,
         featuredImgUrl: data[i].featured_img[0].url,
         featuredDesc: data[i].featuredDesc,
-        series: data[i].series
       }
       allFeaturedProducts.push(product)
     }

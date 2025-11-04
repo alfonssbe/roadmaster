@@ -34,7 +34,6 @@ export async function GET(req: Request, props: { params: Promise<{ productId: st
         drawing_img: true,
         graph_img: true,
         impedance_img: true,
-        size: true,
       }
     });
   
@@ -254,6 +253,12 @@ export async function DELETE(
     });
 
 
+    await prismadb.specificationconnector.deleteMany({
+      where:{
+        productId: params.productId
+      }
+    })
+
 
     //Delete allproductcategory
     await prismadb.allProductCategory.deleteMany({
@@ -295,7 +300,7 @@ export async function PATCH(
 
     const body = await req.json();
 
-    const { name, description, isFeatured, isArchived, isNewProduct, sizeId, images_catalogues, multipleDatasheetProduct, cover_img, drawing_img, graph_img, impedance_img, series } = body;
+    const { name, description, isFeatured, isArchived, isNewProduct, images_catalogues, multipleDatasheetProduct, cover_img, drawing_img, graph_img, impedance_img } = body;
 
     if (!params.productId) {
       return new NextResponse("Product id is required", { status: 400 });
@@ -738,8 +743,6 @@ export async function PATCH(
             isFeatured,
             isArchived,
             isNewProduct,
-            series,
-            sizeId,
             description: description,
             updatedBy: session.name,
             updatedAt: new Date()
@@ -1176,8 +1179,6 @@ export async function PATCH(
         isFeatured,
         isArchived,
         isNewProduct,
-        series,
-        sizeId,
         description: description,
         updatedBy: session.name,
         updatedAt: new Date()

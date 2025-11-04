@@ -23,7 +23,6 @@ export async function GET(req: Request, props: { params: Promise<{ productSlug: 
           impedance_img: true,
           cover_img: true,
           multipleDatasheetProduct: true,
-          size: true,
           connectorSpecifications: {
             include: {
               dynamicspecification: true,

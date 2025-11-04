@@ -22,12 +22,6 @@ export async function GET(req: Request, props: { params: Promise<{ productSlug: 
             url: true
           }
         },
-        size: {
-          select: {
-            value: true,
-            name: true
-          }
-        },
       }
     });
     return NextResponse.json(product);

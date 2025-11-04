@@ -28,7 +28,7 @@ export default function Catalog() {
       </div>
       <div>
             <Link href={'/images/roadmaster/legacy_brosur.pdf'} target="_blank">  
-                <div className="w-full bg-blue-500 text-white flex justify-center items-center py-2 rounded-lg hover:bg-foreground transition-all ease-in-out duration-200">
+                <div className="w-full bg-primary text-white flex justify-center items-center py-2 rounded-lg hover:bg-foreground transition-all ease-in-out duration-200">
                     <FileDown size={20} />   
                     <h2>Download Catalogues</h2>
                 </div>   

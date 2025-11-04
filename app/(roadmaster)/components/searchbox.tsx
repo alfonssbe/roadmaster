@@ -123,7 +123,7 @@ export default function SearchBoxMain() {
                     }}
                     className="border-0 block cursor-pointer"
                     >                 
-                      <div className="p-2 flex border-b-2 hover:text-[rgba(19,82,219,1)] hover:font-bold">
+                      <div className="p-2 flex border-b-2 hover:text-primary hover:font-bold">
                         <div className="pr-4 w-[100px] h-auto">
                           <LazyImage
                             src={value.url.startsWith('/uploads/') ? `${process.env.NEXT_PUBLIC_ROOT_URL}${value.url}` : value.url} 

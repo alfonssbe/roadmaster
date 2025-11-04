@@ -366,7 +366,7 @@ function NavbarContentMobile (){
               <AccordionItem value="item-1">
                 <AccordionTrigger onClick={() =>{
                   setDriversMenu(DriversMenu)
-                }} className='hover:text-[rgba(19,82,219,1)] text-white justify-center'>
+                }} className='hover:text-primary text-white justify-center'>
                   <div className='pr-1'>PRODUCTS</div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -375,19 +375,19 @@ function NavbarContentMobile (){
                       <AccordionItem key={menu.title} value={"item-".concat(indexdriver.toString())}>
                         {indexdriver === 0 && 
                           <Link href={'/drivers'} key='All Drivers'>
-                            <SheetClose className='w-full hover:text-[rgba(19,82,219,1)] text-white text-center py-2'>
+                            <SheetClose className='w-full hover:text-primary text-white text-center py-2'>
                               View All Products
                             </SheetClose>
                           </Link>
                           }
                         {menu.parent===""? 
                             <Link href={menu.href} key={menu.title}>
-                          <SheetClose className='w-full hover:text-[rgba(19,82,219,1)] text-white text-left'>{menu.title}
+                          <SheetClose className='w-full hover:text-primary text-white text-left'>{menu.title}
                             </SheetClose></Link>
                           :
                           <AccordionTrigger value={menu.title} onClick={() =>{
                             searchSubMenu(menu.title, menu.parent)
-                          }} className='hover:text-[rgba(19,82,219,1)] text-white justify-center'><div className='pr-1'>{menu.title}</div></AccordionTrigger>
+                          }} className='hover:text-primary text-white justify-center'><div className='pr-1'>{menu.title}</div></AccordionTrigger>
                         }
                         <AccordionContent>
                         <Accordion type="single" collapsible className="w-full rounded-lg border-2 border-foreground px-2">
@@ -395,19 +395,19 @@ function NavbarContentMobile (){
                               <AccordionItem key={submenu.title} value={submenu.title}>
                                 {submenu.parent===""? 
                                     <Link key={submenu.title} href={submenu.href}>
-                                  <SheetClose className='w-full hover:text-[rgba(19,82,219,1)] text-white text-left'>{submenu.title}
+                                  <SheetClose className='w-full hover:text-primary text-white text-left'>{submenu.title}
                                     </SheetClose></Link>
                                   :
                                   <AccordionTrigger value={submenu.title} onClick={() =>{
                                     searchSubSubMenu(submenu.title, submenu.parent)
-                                  }} className='hover:text-[rgba(19,82,219,1)] px-2 text-white justify-center'><div className='pr-1'>{submenu.title}</div></AccordionTrigger>
+                                  }} className='hover:text-primary px-2 text-white justify-center'><div className='pr-1'>{submenu.title}</div></AccordionTrigger>
                                 }
                                 <AccordionContent>
                                 <Accordion type="single" collapsible className="w-full rounded-lg border-2 border-foreground px-2"> 
                                     {driversubsubMenu.map((subsubmenu, index) =>
                                       <AccordionItem key={subsubmenu.title} value={subsubmenu.title}>
                                           <Link key={subsubmenu.title} href={subsubmenu.href}>
-                                        <SheetClose className='p-2 w-full hover:text-[rgba(19,82,219,1)] text-white text-left'>{subsubmenu.title}
+                                        <SheetClose className='p-2 w-full hover:text-primary text-white text-left'>{subsubmenu.title}
                                           </SheetClose></Link>
                                       </AccordionItem>
                                     )
@@ -427,35 +427,35 @@ function NavbarContentMobile (){
 
               <Button variant={null} asChild className='px-6'>
                   <Link href="/news">
-                  <SheetClose className='w-full text-base hover:text-[rgba(19,82,219,1)] text-white'>
+                  <SheetClose className='w-full text-base hover:text-primary text-white'>
                       NEWS
                     </SheetClose>
                   </Link>
               </Button>
               <Button variant={null} asChild className='px-6'>
                   <Link href="/about-us">
-                  <SheetClose className='w-full text-base hover:text-[rgba(19,82,219,1)] text-white'>
+                  <SheetClose className='w-full text-base hover:text-primary text-white'>
                     ABOUT US
                     </SheetClose>
                   </Link>
               </Button>
               <Button variant={null} asChild className='px-6'>
                   <Link href="/catalog">
-                  <SheetClose className='w-full text-base hover:text-[rgba(19,82,219,1)] text-white'>
+                  <SheetClose className='w-full text-base hover:text-primary text-white'>
                       CATALOGUE
                     </SheetClose>
                   </Link>
               </Button>
               <Button variant={null} asChild className='px-6'>
                   <Link href="/distributors">
-                  <SheetClose className='w-full text-base hover:text-[rgba(19,82,219,1)] text-white'>
+                  <SheetClose className='w-full text-base hover:text-primary text-white'>
                       DISTRIBUTORS
                     </SheetClose>
                   </Link>
               </Button>
               <Button variant={null} asChild className='px-6'>
                   <Link href="/contact">
-                  <SheetClose className='w-full text-base hover:text-[rgba(19,82,219,1)] text-white'>
+                  <SheetClose className='w-full text-base hover:text-primary text-white'>
                       CONTACT US
                     </SheetClose>
                   </Link>

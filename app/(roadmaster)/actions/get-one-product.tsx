@@ -1,4 +1,4 @@
-import { AllCategory, FilesProp, SingleProducts, SingleProductsType, Size, SpecificationProp  } from "@/app/(roadmaster)/types";
+import { AllCategory, FilesProp, SingleProducts, SingleProductsType, SpecificationProp  } from "@/app/(roadmaster)/types";
 import { redirect } from "next/navigation";
 
 const API=`${process.env.NEXT_PUBLIC_ROOT_URL}/${process.env.NEXT_PUBLIC_FETCH_ONE_PRODUCT}`;
@@ -102,19 +102,9 @@ const getProduct = async (productSlug: string): Promise<SingleProducts> => {
     })
 
 
-    let size = {} as Size;
-    if(data.product.size!=null){
-      let size2: Size = {
-        label: data.product.size.value,
-        value: Number(data.product.size.name)
-      }
-      size = size2  
-    }
-
    
     let product: SingleProducts = {
       coverImg: cover_image,
-      size: size,
       images_Catalogues: all_image_catalogues,
       drawing: all_drawing,
       graph: all_graph,
@@ -133,10 +123,6 @@ const getProduct = async (productSlug: string): Promise<SingleProducts> => {
   }
   let product: SingleProducts = {
     coverImg: cover_image,
-    size: {
-      value:0,
-      label:'',
-    },
     images_Catalogues: all_image_catalogues,
     drawing: all_drawing,
     graph: all_graph,

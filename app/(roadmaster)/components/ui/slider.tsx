@@ -75,7 +75,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           {currentIndices.map((_, index) => (
             <SliderPrimitive.Thumb
               key={index}
-              className="block h-4 w-4 rounded-full bg-[rgba(19,82,219,1)] ring-offset-background transition-colors hover:shadow-lg hover:cursor-pointer"
+              className="block h-4 w-4 rounded-full bg-text-primary ring-offset-background transition-colors hover:shadow-lg hover:cursor-pointer"
             />
           ))}
         </SliderPrimitive.Root>

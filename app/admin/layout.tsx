@@ -12,7 +12,7 @@ export default async function AdminRootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className='bg-primary h-screen'>
+    <div className='bg-background h-screen'>
       <ToastProvider />
       <ModalProvider />
       {children}

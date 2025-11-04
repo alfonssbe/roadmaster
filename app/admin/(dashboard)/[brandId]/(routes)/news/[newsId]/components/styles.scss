@@ -22,10 +22,10 @@
   
     a {
       text-decoration: underline; /* Underline links */
-      color: var(--blue, #007bff); /* Link color */
+      color: var(--blue, #ea3038); /* Link color */
   
       &:hover {
-        color: var(--blue-hover, #0056b3); /* Change color on hover */
+        color: var(--blue-hover, #c5131c); /* Change color on hover */
       }
     }
 

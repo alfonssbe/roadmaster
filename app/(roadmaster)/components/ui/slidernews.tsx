@@ -68,7 +68,7 @@
 //         </SliderPrimitive.Track>
 //         {sliderValue.map((_, index) => (
 //           <React.Fragment key={index}>
-//             <SliderPrimitive.Thumb className="block h-4 w-4 rounded-full first-letter:bg-background bg-[rgba(19,82,219,1)] ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 hover:shadow-lg hover:cursor-pointer" />
+//             <SliderPrimitive.Thumb className="block h-4 w-4 rounded-full first-letter:bg-background bg-text-primary ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 hover:shadow-lg hover:cursor-pointer" />
 //           </React.Fragment>
 //         ))}
 //       </SliderPrimitive.Root>
@@ -166,7 +166,7 @@ const SliderNews = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root
           {currentIndices.map((_, index) => (
             <SliderPrimitive.Thumb
               key={index}
-              className="block h-4 w-4 rounded-full first-letter:bg-background bg-[rgba(19,82,219,1)] ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 hover:shadow-lg hover:cursor-pointer"
+              className="block h-4 w-4 rounded-full first-letter:bg-background bg-text-primary ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50 hover:shadow-lg hover:cursor-pointer"
             />
           ))}
         </SliderPrimitive.Root>

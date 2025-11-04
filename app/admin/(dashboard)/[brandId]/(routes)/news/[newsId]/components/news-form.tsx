@@ -22,8 +22,6 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/app/admin/components/ui/heading"
 import Image from "next/image"
-import { uploadNewsImage } from "@/app/admin/upload-news-image"
-import { Textarea } from "@/app/admin/components/ui/textarea"
 import { Label } from "@/app/admin/components/ui/label"
 import { Popover, PopoverContent, PopoverTrigger } from "@/app/admin/components/ui/popover"
 import { Bold, CalendarIcon, Heading1, Heading4, Heading5, Heading6, Italic, List, ListOrdered, Strikethrough, Link as LinkLucide, Unlink as UnlinkLucide, Redo, Undo, UnderlineIcon, ImageIcon, YoutubeIcon, TableIcon, ArrowDown, ArrowUp, ArrowLeft, ArrowRight, GripVertical, Trash2, GripHorizontal, Plus, Trash } from "lucide-react"
@@ -49,6 +47,7 @@ import './styles.scss'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/app/admin/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
 import { Calendar } from "@/components/ui/calendar"
+import { uploadImage } from "@/app/admin/upload-image"
 
 
 const formSchema = z.object({
@@ -153,7 +152,7 @@ export const NewsForm: React.FC<NewsFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
 
-        const url = await uploadNewsImage(formData);
+        const url = await uploadImage(formData, 'newsimages');
         updatednewsImage!.url = url
         return updatednewsImage!;
         } catch (error) {
@@ -412,7 +411,7 @@ export const NewsForm: React.FC<NewsFormProps> = ({
             const formData = new FormData();
             formData.append('image', file);
     
-            const url = await uploadNewsImage(formData);
+            const url = await uploadImage(formData, 'newsimages');
             return url
             } catch (error) {
               return ''

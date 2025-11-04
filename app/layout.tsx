@@ -97,7 +97,7 @@ export default function RootLayout({
           {children}
         <Toaster />
       </body>
-      <GoogleAnalytics gaId="G-5HMPXRHGVL" />
+      <GoogleAnalytics gaId="XYZ" />
     </html>
   )
 }

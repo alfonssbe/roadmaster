@@ -1,58 +1,41 @@
 "use client"
+import Image from "next/image"
+import { useScroll, useTransform, motion } from "framer-motion"
+import { useRef } from "react"
+import Header from "./header"
 
-import { FeaturedProducts } from '@/app/(roadmaster)/types';
-import SwiperCarousel from '../../components/ui/swipercarousel';
-import Image from 'next/image';
-import { Loader } from '../../components/ui/loader';
-import getAllFeaturedProducts from '../../actions/get-all-featured-products';
-import { useEffect, useState } from 'react';
+export default function Hero() {
+  const container = useRef()
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"],
+  })
 
-const Hero: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-  const [value, setValue] = useState<FeaturedProducts[]>([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const featuredData: FeaturedProducts[] = await getAllFeaturedProducts();
-        setValue(featuredData);
-      } catch (error) {
-        console.error('Error fetching featured products:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
-  
+  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"])
 
   return (
-      // loading? 
-      //   <FullScreenLoader isVisible={loading}/>
-      //  :
-        <>
-          <div className="top-0 left-0 w-full z-10"> 
-          <h2 className='sr-only'>Produk Unggulan milik Roadmaster!</h2>
-          <div className="absolute w-full h-[90vh] top-0">
-            <img
-              className="top-0 left-0 object-cover w-screen h-screen"
-              src="/images/roadmaster/navbarbg.webp"
-              alt="Navigation Bar Background Roadmaster"
-              width={1000}
-              height={1000}
-            />
+    <div className="h-screen overflow-hidden">
+      <Header />
+      <motion.div style={{ y }} className="relative h-full">
+        <Image
+          src="/images/mountain-landscape.jpg"
+          fill
+          alt="Mountain landscape background"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="absolute inset-0 flex items-center justify-start z-10">
+          <div className="text-left text-white max-w-3xl px-6">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Where Ideas Learn to Breathe</h1>
+            <p className="text-sm md:text-base leading-relaxed mb-8">
+              A landing space for bold experiments, half-finished thoughts, and sparks of inspiration. Built to grow,
+              adapt, and surprise—just like the projects you're about to launch.
+            </p>
+            <button className="px-4 py-2 border-2 border-white bg-transparent text-white text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer">
+              GET STARTED
+            </button>
           </div>
-            {loading? 
-              <div className="flex items-center justify-center w-screen h-[300px] z-50">
-                <Loader/>
-              </div>  
-              :
-                <SwiperCarousel slides={value}/>
-             }
-          </div>
-        </>  
+        </div>
+      </motion.div>
+    </div>
   )
-};
-
-export default Hero;
+}

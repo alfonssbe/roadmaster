@@ -3,7 +3,6 @@ import { AllFilterProductsOnlyType, ChildSpecificationProp } from "../types";
 
 const getAllProductsForFilterPage = async (api: string): Promise<[AllFilterProductsOnlyType[], Record<string, ChildSpecificationProp[]>]> => {
 
-  let allSizes : string[] = []
   const response = await fetch(api);
   if (!response.ok) {
     redirect('/');
@@ -15,17 +14,8 @@ const getAllProductsForFilterPage = async (api: string): Promise<[AllFilterProdu
   }
 
   let allSpecs: Record<string, ChildSpecificationProp[]> = data.allSpecsCombined
-  let tempSize: ChildSpecificationProp[] = []
   let finalTemp: AllFilterProductsOnlyType[] = []
   data.products.map((val: any) => {
-    tempSize.push({
-      childname: "Size",
-      value: val.size.name,
-      slug: 'size',
-      notes: '',
-      unit: `"`
-    })
-    allSizes.push(val.size.name)
     // console.log("val.allcat", val.allCat)
     let alltempSpec: ChildSpecificationProp[] = []
     val.connectorSpecifications.map((spec: any) => {
@@ -80,16 +70,11 @@ const getAllProductsForFilterPage = async (api: string): Promise<[AllFilterProdu
           url: val.cover_img[0].url
         }
       },
-      size: {
-        name: val.size.value,
-        value: val.size.name
-      },
       specs: alltempSpec
     }
     finalTemp.push(temp)
   })
 
-  allSpecs['size'] = tempSize
   for (const key in allSpecs) {
     if (allSpecs[key].length === 0) {
       delete allSpecs[key]

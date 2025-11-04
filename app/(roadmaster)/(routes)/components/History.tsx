@@ -22,13 +22,15 @@ const History: React.FC = () => {
             TENTANG KAMI
           </h2>
           <Separator className='bg-foreground w-56 h-2'/>
-          <h3 className='py-4 text-black pr-4 md:w-4/5 w-full'>
-            <p>
-              Sinar Baja Electric (SBE), berdiri sejak 1981, kini menjadi produsen loudspeaker terbesar di Asia Tenggara. Dengan sertifikasi <b>ISO 9001</b>, <b>ISO 14001</b>, <b>ISO 45001</b>, dan <b>IATF 16949</b>, SBE fokus pada produk berkualitas tinggi.
-            </p>
-            <p>
-              Merek lokalnya, Legacy, Sphinx, dan Prestige, dikenal dalam segmen Car Audio berkat desain berkualitas, bahan premium, dan variasi model yang memenuhi kebutuhan konsumen.
-            </p>
+          <h3 className='py-2 text-black pr-4 w-full'>
+            <p>Hadirkan kekuatan suara di setiap momen bersama Roadmaster!
+            Dengan dentuman bass yang dalam, bertenaga, dan memukau, Roadmaster bukan sekadar speaker rumahan — ia adalah mesin pengalaman audio yang menggugah emosi.</p>
+          </h3>
+          <h3 className='py-2 text-black pr-4 w-full'>
+            <p>Dari film aksi yang terasa lebih hidup hingga musik favorit yang meledak penuh intensitas, Roadmaster memastikan setiap detik terdengar lebih nyata, lebih mendalam, dan lebih menggetarkan.</p>
+          </h3>
+          <h3 className='py-2 text-black pr-4 w-full'>
+            <p>Roadmaster — rasakan bass yang bukan hanya terdengar, tapi juga menghentak sampai ke hati.</p>
           </h3>
           <Button asChild variant={'secondary'} className='md:w-fit w-full'>
             <Link href="/about-us" className='text-white font-extrabold'>ABOUT US</Link>

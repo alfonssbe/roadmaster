@@ -26,7 +26,6 @@ const ProductsPage = async (
     include: {
       images_catalogues: true,
       cover_img: true,
-      size: true,
     },
     orderBy: {
       updatedAt: 'desc'
@@ -40,7 +39,6 @@ const ProductsPage = async (
     productImageUrl: item.cover_img.map((img_url) => (
       img_url.url
     )),
-    size: item.size.name,
     updatedAt: format(item.updatedAt, 'MMMM do, yyyy'),
     updatedBy: item.updatedBy,
     isFeatured: item.isFeatured,

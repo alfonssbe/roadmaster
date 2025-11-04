@@ -23,10 +23,10 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/app/admin/components/ui/heading"
 import { Checkbox } from "@/components/ui/checkbox"
-import { uploadFeaturedImage } from "@/app/admin/upload-featured-image"
 import Image from "next/image"
 import { Trash } from "lucide-react"
 import Link from "next/link"
+import { uploadImage } from "@/app/admin/upload-image"
 
 
 const formSchema = z.object({
@@ -115,7 +115,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
 
-        const url = await uploadFeaturedImage(formData);
+        const url = await uploadImage(formData, 'featuredimages');
         updatedFeaturedImage!.url = url
         return updatedFeaturedImage!;
         } catch (error) {
@@ -205,7 +205,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
           <div className="md:grid md:grid-cols-2 gap-4">
             
             <div className="rounded-lg p-4 shadow-lg bg-white/50 gap-4">
-              <div className="text-left font-bold pb-2">Cover Image | <Link href={'/images/admin/cover_image_featured_prod_placement.png'} target="blank" className="text-[rgba(19,82,219,1)] hover:underline font-normal text-sm">Check placement</Link></div>
+              <div className="text-left font-bold pb-2">Cover Image | <Link href={'/images/admin/cover_image_featured_prod_placement.png'} target="blank" className="text-primary hover:underline font-normal text-sm">Check placement</Link></div>
               <div
                 className="flex items-center justify-between rounded-md shadow-xs"
               >
@@ -245,7 +245,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
                 name="featuredDesc"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-base">Featured Description | <Link href={'/images/admin/desc_featured_prod_placement.png'} target="blank" className="text-[rgba(19,82,219,1)] hover:underline font-normal text-sm">Check placement</Link></FormLabel>
+                    <FormLabel className="font-bold text-base">Featured Description | <Link href={'/images/admin/desc_featured_prod_placement.png'} target="blank" className="text-primary hover:underline font-normal text-sm">Check placement</Link></FormLabel>
                     <FormControl>
                       <Input disabled={loading} placeholder="Featured Products Descriptions" {...field} className="bg-white text-black"/>
                     </FormControl>

@@ -102,35 +102,35 @@ function Navbar() {
                 
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/news" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-[rgba(19,82,219,1)] ${pathname.includes('news') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
+                      {/* <div className={`hover:text-primary ${pathname.includes('news') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         BERITA
                       {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/about-us" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-[rgba(19,82,219,1)] ${pathname.includes('about-us') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
+                      {/* <div className={`hover:text-primary ${pathname.includes('about-us') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         TENTANG KAMI
                       {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/catalog" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-[rgba(19,82,219,1)] ${pathname.includes('catalog') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
+                      {/* <div className={`hover:text-primary ${pathname.includes('catalog') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         KATALOG
                       {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/distributors" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                    {/* <div className={`hover:text-[rgba(19,82,219,1)] ${pathname.includes('distributors') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
+                    {/* <div className={`hover:text-primary ${pathname.includes('distributors') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                       DISTRIBUTOR
                     {/* </div> */}
                   </NavigationMenuLink>
               </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/contact" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                    {/* <div className={`hover:text-[rgba(19,82,219,1)] ${pathname.includes('contact') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
+                    {/* <div className={`hover:text-primary ${pathname.includes('contact') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                       KONTAK KAMI
                     {/* </div> */}
                   </NavigationMenuLink>
@@ -157,7 +157,7 @@ function Navbar() {
       {/* {isMobile &&  */}
       <div className='flex lg:hidden'>
         <Button variant={null} asChild className='px-2'>
-          <div className={`w-full text-base hover:text-[rgba(19,82,219,1)] ${navbarBg ? 'text-black' : 'text-white'}`}
+          <div className={`w-full text-base hover:text-primary ${navbarBg ? 'text-black' : 'text-white'}`}
               onMouseDown={() => setSearchBoxOpen(false)}
               onClick={() => searchBoxOpen ? setSearchBoxOpen(false) : setSearchBoxOpen(true)} >
             <div 
@@ -170,7 +170,7 @@ function Navbar() {
         </Button>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant={null} className={`w-fit p-0 ${navbarBg ? 'text-black' : 'text-white'} hover:text-[rgba(19,82,219,1)] hover:cursor-pointer`} onClick={() => setnavbarContentMobileOpen(true)}>
+            <Button variant={null} className={`w-fit p-0 ${navbarBg ? 'text-black' : 'text-white'} hover:text-primary hover:cursor-pointer`} onClick={() => setnavbarContentMobileOpen(true)}>
                 <Menu size={30} className="" />
               </Button>
           </SheetTrigger>

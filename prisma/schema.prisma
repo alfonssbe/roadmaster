@@ -36,7 +36,6 @@ model Brand {
   name            String        @db.Text
   userId          String
   products        Product[]     @relation("BrandToProduct")
-  sizes           Size[]        @relation("BrandToSize")
   allcategories   AllCategory[] @relation("BrandToAllCategory")
   allnews         News[]        @relation("BrandToNews")
   connectorSpecifications specificationconnector[] @relation("BrandToConnectorSpecification")
@@ -56,9 +55,6 @@ model Product {
   isFeatured  Boolean   @default(false)
   isArchived  Boolean   @default(false)
   isNewProduct  Boolean @default(false)
-  series   String  @db.Text  @default("")
-  sizeId      String    
-  size        Size      @relation(fields: [sizeId], references: [id])
   images_catalogues      Image_Catalogues[]
   drawing_img Drawing_Image[]
   graph_img   Graph_Image[]
@@ -73,7 +69,6 @@ model Product {
   updatedAt   DateTime  @updatedAt
 
   @@index([brandId])
-  @@index([sizeId])
 }
 
 model News {
@@ -89,20 +84,6 @@ model News {
   event_date  DateTime  @default(now())
   updatedBy   String    @default("")
   // products    Product[] // Relation to Product model
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  @@index([brandId])
-}
-
-model Size {
-  id          String    @id @default(uuid())
-  brandId     String    // Foreign Key to Brand
-  brand       Brand     @relation("BrandToSize", fields: [brandId], references: [id])
-  name        String    @db.Text
-  value       String    @db.Text
-  updatedBy   String    @default("")
-  products    Product[] // Relation to Product model
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 

@@ -43,7 +43,7 @@ export function LiveVisitor(props: Props) {
         ) : (
         <ResponsiveContainer width="100%" height="100%">
             <LineChart data={props.LiveVisitor.length > 30 ? groupByMonth(props.LiveVisitor, props.counterMonth) : props.LiveVisitor}>
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+            <CartesianGrid stroke="#ea3038" strokeDasharray="5 5"/>
             <XAxis dataKey="date"/>
             <YAxis dataKey="users"/>
             <Tooltip
@@ -67,7 +67,7 @@ export function LiveVisitor(props: Props) {
                 return null
                 }}
             />
-            <Line type="monotone" dataKey="users" stroke="#1352db" strokeWidth={2} dot={props.LiveVisitor.length > 30 ? false : true} />
+            <Line type="monotone" dataKey="users" stroke="#ea3038" strokeWidth={2} dot={props.LiveVisitor.length > 30 ? false : true} />
             </LineChart>
         </ResponsiveContainer>
         )}

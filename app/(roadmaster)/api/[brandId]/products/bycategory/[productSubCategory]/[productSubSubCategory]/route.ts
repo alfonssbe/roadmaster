@@ -97,12 +97,6 @@ export async function GET(
             url: true
           }
         },
-        size: {
-          select: {
-            name: true,
-            value: true
-          }
-        },
         connectorSpecifications: {
           where: {
             dynamicspecificationId: {

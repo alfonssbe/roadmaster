@@ -28,9 +28,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
     applicationName: 'Roadmaster',
     keywords: [
       product.name,
-      product.slug,
-      product.size.value.toString().concat(`" driver`),
-      product.size.value.toString().concat(` inch driver`)
+      product.slug
     ],
     openGraph: {
       title: `${product.name} | Roadmaster`,

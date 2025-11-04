@@ -11,7 +11,7 @@ type Props = {
 
 export function CountryVisitor(props: Props) {
   return (
-        <div className="shadow-lg py-2 rounded-lg bg-secondary-foreground">
+        <div className="shadow-lg py-2 rounded-lg bg-background">
         <CardHeader className="px-4 py-2">
             <div className="flex items-center">
             <CardTitle className="text-base font-bold">Most Visitors by Country (30 Days)</CardTitle>
@@ -29,7 +29,7 @@ export function CountryVisitor(props: Props) {
             <XAxis dataKey="country" />
             <YAxis dataKey="users"/>
             <Tooltip />
-            <Bar dataKey="users" fill="#1352db" />
+            <Bar dataKey="users" fill="#ea3038" />
             {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
             </BarChart>
         </ResponsiveContainer>

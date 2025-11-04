@@ -147,7 +147,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0313815728" className="text-blue-600 hover:underline">
+                <a href="tel:0313815728" className="text-primary hover:underline">
                   031-3815728
                 </a>
               </h4>
@@ -159,11 +159,11 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0315314275" className="text-blue-600 hover:underline">
+                <a href="tel:0315314275" className="text-primary hover:underline">
                   031-5314275
                 </a>
                 ,{" "}
-                <a href="tel:082140191857" className="text-blue-600 hover:underline">
+                <a href="tel:082140191857" className="text-primary hover:underline">
                   0821-40191857
                 </a>
               </h4>
@@ -175,7 +175,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0317490490" className="text-blue-600 hover:underline">
+                <a href="tel:0317490490" className="text-primary hover:underline">
                   031-7490490
                 </a>
               </h4>
@@ -199,11 +199,11 @@ export default function Distributor() {
               </div>
               <h4>
                 :{" "}
-                <a href="tel:0341566616" className="text-blue-600 hover:underline">
+                <a href="tel:0341566616" className="text-primary hover:underline">
                   0341-566616
                 </a>
                 ,{" "}
-                <a href="tel:0341575133" className="text-blue-600 hover:underline">
+                <a href="tel:0341575133" className="text-primary hover:underline">
                   0341-575133
                 </a>
               </h4>
@@ -225,7 +225,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:082226465225" className="text-blue-600 hover:underline">
+                <a href="tel:082226465225" className="text-primary hover:underline">
                   0822-26465225
                 </a>
               </h4>
@@ -251,11 +251,11 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0216590134" className="text-blue-600 hover:underline">
+                <a href="tel:0216590134" className="text-primary hover:underline">
                   021-6590134
                 </a>
                 ,{" "}
-                <a href="tel:0216590151" className="text-blue-600 hover:underline">
+                <a href="tel:0216590151" className="text-primary hover:underline">
                   021-6590151
                 </a>
               </h4>
@@ -267,7 +267,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0216613249" className="text-blue-600 hover:underline">
+                <a href="tel:0216613249" className="text-primary hover:underline">
                   021-6613249
                 </a>
               </h4>
@@ -279,7 +279,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:082112345228" className="text-blue-600 hover:underline">
+                <a href="tel:082112345228" className="text-primary hover:underline">
                   0821-12345228
                 </a>
               </h4>
@@ -302,7 +302,7 @@ export default function Distributor() {
               <div className="pr-2"><Phone size={20} /></div>
               <h4>
                 :{" "}
-                <a href="tel:0227276788" className="text-blue-600 hover:underline">
+                <a href="tel:0227276788" className="text-primary hover:underline">
                   022-7276788
                 </a>
               </h4>
