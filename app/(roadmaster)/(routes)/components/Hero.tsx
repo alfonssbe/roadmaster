@@ -2,7 +2,6 @@
 import Image from "next/image"
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useRef } from "react"
-import Header from "./header"
 
 export default function Hero() {
   const container = useRef()

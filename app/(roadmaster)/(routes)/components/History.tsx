@@ -24,10 +24,10 @@ const History: React.FC = () => {
           <Separator className='bg-foreground w-56 h-2'/>
           <h3 className='py-2 text-black pr-4 w-full'>
             <p>Hadirkan kekuatan suara di setiap momen bersama Roadmaster!
-            Dengan dentuman bass yang dalam, bertenaga, dan memukau, Roadmaster bukan sekadar speaker rumahan — ia adalah mesin pengalaman audio yang menggugah emosi.</p>
+            Dengan dentuman bass yang dalam, bertenaga, dan memukau, Roadmaster bukan sekadar speaker rumahan — namun pusat kekuatan audio yang siap mengguncang setiap ruangan!</p>
           </h3>
           <h3 className='py-2 text-black pr-4 w-full'>
-            <p>Dari film aksi yang terasa lebih hidup hingga musik favorit yang meledak penuh intensitas, Roadmaster memastikan setiap detik terdengar lebih nyata, lebih mendalam, dan lebih menggetarkan.</p>
+            <p>Dari film aksi yang terasa lebih hidup hingga musik favorit yang meledak penuh intensitas, Roadmaster memastikan setiap detik terdengar lebih nyata, lebih mendalam, dan lebih menggetarkan!</p>
           </h3>
           <h3 className='py-2 text-black pr-4 w-full'>
             <p>Roadmaster — rasakan bass yang bukan hanya terdengar, tapi juga menghentak sampai ke hati.</p>
