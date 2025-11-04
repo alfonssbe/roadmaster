@@ -13,13 +13,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Roadmaster',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 1200,
           height: 630,
           alt: 'Logo Roadmaster',
         },
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Logo Roadmaster',
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: 'Dapatkan berita terbaru dari Roadmaster! Temukan informasi terkini tentang produk, inovasi, dan acara kami di sini!',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 1200,
           height: 630,
           alt: 'Logo Roadmaster',

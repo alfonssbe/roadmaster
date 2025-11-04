@@ -2,25 +2,27 @@ import Image from "next/image"
 
 export default function Featured() {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0">
-      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-foreground">
+      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2 object-right">
         <Image
-          src="/images/woman-horse.jpg"
-          alt="Woman on horse in countryside"
+          src="/images/roadmaster/tentang-kami.webp"
+          alt="Tentang Roadmaster"
           width={600}
           height={800}
-          className="w-full h-full object-cover"
+          className="w-1/2 h-full object-contain"
         />
       </div>
-      <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1">
-        <h3 className="uppercase mb-4">Features That Refuse to Sit Still</h3>
-        <p className="text-2xl lg:text-4xl mb-8">
-          Not just bullet points—living, breathing highlights. Each feature adapts to movement, context, and mood,
-          making your product feel alive from the very first glance.
-        </p>
-        <button className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit">
-          LEARN MORE
-        </button>
+      <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1 gap-4">
+        <Image
+          src="/images/roadmaster/logo_roadmaster.webp"
+          alt="Logo Roadmaster"
+          width={500}
+          height={500}
+          className="w-1/3 h-fit"
+        />
+        <h3 className="text-xl lg:text-3xl mb-8 text-background">
+          Perkuat setiap momen di rumah Anda dengan Roadmaster. Dirancang untuk menghasilkan bass yang solid dan berenergi, Roadmaster memberikan pengalaman audio yang hidup dan penuh karakter — cocok untuk menonton film, mendengarkan musik favorit, hingga menikmati waktu santai dengan kualitas suara yang memukau.
+        </h3>
       </div>
     </div>
   )

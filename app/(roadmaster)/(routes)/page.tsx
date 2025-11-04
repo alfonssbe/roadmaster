@@ -1,38 +1,55 @@
-import Hero from './components/Hero';
-import Series from './components/Series';
-import History from './components/History';
-import Youtube from './components/Youtube';
-import News from './components/news';
-import Distributor from './components/distributor';
-import Keunggulan from './components/keunggulan';
+"use client"
 
-export default function LandingPageRoadmaster() {  
+import { useEffect } from "react"
+import Hero from "./components/hero";
+import Footer from "./components/footer";
+import Lenis from 'lenis'
+import Navbar from "../components/navbar";
+import { useScrollDirection } from "@/app/hooks/use-scroll-direction";
+import TentangKami from "./components/about";
+
+export default function Home() {
   const baseUrl = process.env.NEXT_PUBLIC_ROOT_URL ?? 'http://localhost:3003';
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Roadmaster",
     "url": `${baseUrl}`,
-    "logo": `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+    "logo": `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
     "sameAs": [
       "https://www.instagram.com/legacy.speaker",
     ]
   };
-  
+  const isVisible = useScrollDirection()
+
+
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    function raf(time: any) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [])
+
   return (
-    <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <h1 className='sr-only'>Welcome to Roadmaster Official Website!</h1>
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <h1 className='sr-only'>Welcome to Roadmaster Official Website!</h1>
+      <div className={`fixed top-0 left-0 right-0 z-50 p-6 transition-transform duration-700 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}>
+        <Navbar />
+      </div>
       <Hero />
-      <Series />
-      <News/>
-      <History />
-      <Youtube />
-      <Keunggulan />
-      <Distributor />
-    </>
-  );
+      {/* <Featured /> */}
+      <TentangKami/>
+      <Footer />
+    </main>
+  )
 }

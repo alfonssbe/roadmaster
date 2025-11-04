@@ -49,7 +49,7 @@ export default async function SingleNewsPage(props: Props) {
       "name": "Roadmaster",
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/images/roadmaster/logo_legacy.webp`
+        "url": `${baseUrl}/images/roadmaster/logo_roadmaster.webp`
       }
     },
     "mainEntityOfPage": {

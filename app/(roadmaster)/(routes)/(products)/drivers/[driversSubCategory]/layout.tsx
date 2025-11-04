@@ -16,7 +16,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   const baseUrl = process.env.NEXT_PUBLIC_ROOT_URL ?? 'http://localhost:3003';
   const subCatName = await getSubCatNameBySlug(params.driversSubCategory)
   const previousImages = (await parent).openGraph?.images || []
-  const logo_URL = `${baseUrl}/images/roadmaster/logo_legacy.webp`
+  const logo_URL = `${baseUrl}/images/roadmaster/logo_roadmaster.webp`
   const logo_ALT = `Roadmaster Logo`
  
   return {

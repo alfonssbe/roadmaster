@@ -348,7 +348,7 @@ function NavbarContentMobile (){
               <Link href={'/'}>
               <SheetClose>
                 <Image
-                  src={'/images/legacy/logo_legacy.webp'}
+                  src={'/images/roadmaster/logo_roadmaster.webp'}
                   className='cursor-pointer max-w-[150px] h-8'
                   alt="Legacy Speaker Logo"
                   width={500}

@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="w-full max-w-[200px] md:mx-0 mx-auto h-auto pb-4">
             <Link href="/">
               <Image
-                src="/images/roadmaster/logo_legacy.webp"
+                src="/images/roadmaster/logo_roadmaster.webp"
                 alt="Logo Roadmaster"
                 width={800}
                 height={600}

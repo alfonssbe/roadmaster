@@ -26,7 +26,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   const subCatName = subCatNameResult.status === 'fulfilled' ? subCatNameResult.value : { name: '' };
   const subSubCatName = subSubCatNameResult.status === 'fulfilled' ? subSubCatNameResult.value : { name: '' };
     const previousImages = (await parent).openGraph?.images || []
-  const logo_URL = `${baseUrl}/images/roadmaster/logo_legacy.webp`
+  const logo_URL = `${baseUrl}/images/roadmaster/logo_roadmaster.webp`
   const logo_ALT = `Logo Roadmaster`
   return {
     title: subCatName.name.concat(" ", subSubCatName.name," Series | Roadmaster"),

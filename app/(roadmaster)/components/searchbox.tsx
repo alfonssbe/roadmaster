@@ -90,7 +90,7 @@ export default function SearchBoxMain() {
         className="flex items-center justify-center"
       >
         <Image
-          src={'/images/roadmaster/logo_legacy.webp'}
+          src={'/images/roadmaster/logo_roadmaster.webp'}
           className='cursor-pointer max-w-[150px] h-8'
           alt="Logo Roadmaster"
           width={1000}

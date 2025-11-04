@@ -9,7 +9,7 @@ export default function Catalog() {
     "@type": "Organization",
     "name": "Katalog | Roadmaster",
     "url": `${baseUrl}/catalog`,
-    "logo": `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+    "logo": `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
     "description": "Speaker mobil asli buatan Indonesia produksi dari CV. Sinar Baja Electric. Manjakan telinga Anda dengan suara jernih dan bass kuat!",
   };
 

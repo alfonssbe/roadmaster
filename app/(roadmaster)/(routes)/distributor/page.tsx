@@ -9,7 +9,7 @@ export default function Distributor() {
     "@type": "Organization",
     "name": "Roadmaster",
     "url": `${baseUrl}/distributor`,
-    "logo": `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+    "logo": `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
     "description": "Temukan Semua Distributor Roadmaster",
     "subOrganization": [
       {

@@ -25,13 +25,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Roadmaster',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 1200,
           height: 630,
           alt: 'Roadmaster Logo',
         },
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Roadmaster Logo',
@@ -46,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: 'Speaker mobil asli buatan Indonesia produksi dari CV. Sinar Baja Electric. Manjakan telinga Anda dengan suara jernih dan bass kuat!',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Roadmaster Logo',
@@ -93,7 +93,7 @@ export default function RootLayout({
       </Head>
       <body className={`${font.className || ''} overflow-x-hidden`}>
       <ScrollToTop />
-      <Image src={'/images/roadmaster/navbarbg.webp'} alt="Roadmaster Navigation Bar Background" width={1920} height={1080} className='-z-10 fixed md:-top-64 sm:-top-24 -top-10 left-0' priority/>
+      {/* <Image src={'/images/roadmaster/navbarbg.webp'} alt="Roadmaster Navigation Bar Background" width={1920} height={1080} className='-z-10 fixed md:-top-64 sm:-top-24 -top-10 left-0' priority/> */}
           {children}
         <Toaster />
       </body>

@@ -19,13 +19,13 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
       siteName: 'Roadmaster',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 1200,
           height: 630,
           alt: 'Logo Roadmaster',
         },
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Logo Roadmaster',
@@ -40,7 +40,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
       description: 'Bandingkan produk Roadmaster yang telah Anda pilih untuk menemukan pilihan terbaik.',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 1200,
           height: 630,
           alt: 'Logo Roadmaster',

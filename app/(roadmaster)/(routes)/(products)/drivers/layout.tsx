@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Roadmaster',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Roadmaster Logo',
@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: 'Jelajahi berbagai driver speaker Roadmaster, dari tweeter hingga subwoofer, dengan kualitas terbaik untuk kebutuhan audio Anda!',
       images: [
         {
-          url: `${baseUrl}/images/roadmaster/logo_legacy.webp`,
+          url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
           width: 800,
           height: 800,
           alt: 'Roadmaster Logo',

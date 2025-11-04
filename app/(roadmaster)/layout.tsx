@@ -9,10 +9,7 @@ export default function RootRoadmasterLayout({
 }) {
   return (
     <div className='min-h-screen'>
-      <NextTopLoader color='#ee3239' showSpinner={false}/>
-      <div className="sticky top-0 z-50 bg-transparent bg-cover bg-center">
-        <Navbar />
-      </div>
+      {/* <NextTopLoader color='#ee3239' showSpinner={false}/> */}
       <div className="flex flex-col min-h-screen">
         <main className="grow">
           {children}

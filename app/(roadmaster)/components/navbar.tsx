@@ -69,8 +69,8 @@ function Navbar() {
           className="flex items-center"
         >
           <Image
-            src={`/images/roadmaster/logo_legacy.webp`}
-            className='cursor-pointer max-w-[150px] h-8'
+            src={`/images/roadmaster/logo_roadmaster.webp`}
+            className='cursor-pointer max-w-fit h-14'
             alt="Logo Roadmaster"
             width={1000}
             height={1000}            
