@@ -1,64 +1,81 @@
+import Image from "next/image"
 import Link from "next/link"
 
 export default function Footer() {
   return (
     <div
-      className="relative h-[400px] sm:h-[600px] lg:h-[800px] max-h-[800px]"
+      className="relative h-[300px] lg:h-[350px] max-h-[350px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative h-[calc(100vh+400px)] sm:h-[calc(100vh+600px)] lg:h-[calc(100vh+800px)] -top-[100vh]">
-        <div className="h-[400px] sm:h-[600px] lg:h-[800px] sticky top-[calc(100vh-400px)] sm:top-[calc(100vh-600px)] lg:top-[calc(100vh-800px)]">
-          <div className="bg-neutral-900 py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
-            <div className="flex shrink-0 gap-8 sm:gap-12 lg:gap-20">
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">About</h3>
-                <Link
-                  href="/projects"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/mission"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Our Mission
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Contact Us
-                </Link>
-              </div>
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Education</h3>
-                <Link
-                  href="/news"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  News
-                </Link>
-                <Link
-                  href="/learn"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Learn
-                </Link>
-                <Link
-                  href="/publications"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Publications
-                </Link>
+      <div className="relative h-[calc(100vh+300px)] lg:h-[calc(100vh+350px)] -top-[100vh]">
+        <div className="h-[300px] lg:h-[350px] sticky top-[calc(100vh-300px)] lg:top-[calc(100vh-350px)]">
+          <div className="bg-foreground py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
+            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-8 sm:gap-0">
+              <Link href={'/'} className="md:self-start self-center">
+                <Image
+                  src={`/images/roadmaster/logo_roadmaster.webp`}
+                  className='cursor-pointer max-w-fit md:h-16 h-12'
+                  alt="Logo Roadmaster"
+                  width={1000}
+                  height={1000}            
+                  priority
+                />
+              </Link>
+              <div className="md:flex block shrink-0 gap-6 md:gap-8 lg:gap-10">
+                <div className="flex flex-col md:gap-2 sm:text-end text-center">
+                  <h3 className="mb-1 md:mb-2 uppercase text-background/70 text-xs sm:text-sm">HUBUNGI KAMI</h3>
+                  <Link href="tel:0341566616" className="text-background hover:text-primary transition-colors duration-300 text-sm sm:text-base">
+                    031 8065100
+                  </Link>
+                  <Link
+                    href="mailto:officialroadmaster@gmail.com"
+                    className="text-background hover:text-primary transition-colors duration-300 text-sm sm:text-base"
+                  >
+                    officialroadmaster@gmail.com
+                  </Link>
+                </div>
+                <div className="flex flex-col md:gap-2 sm:text-end text-center md:pt-0 pt-4">
+                  <h3 className="mb-1 md:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Temukan Kami</h3>
+                  <div className="flex gap-2 justify-center sm:justify-end">
+                    <Link
+                      href="https://www.instagram.com/roadmasterspeaker"
+                      target="blank"
+                      className="text-background hover:text-primary transition-colors duration-300"
+                    >
+                      <svg
+                        className="w-6 h-6"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fillRule="evenodd" clipRule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                        <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href="https://www.facebook.com/roadmasterspeaker"
+                      target="blank"
+                      className="text-background hover:text-primary transition-colors duration-300"
+                    >
+                      <svg
+                        className="w-6 h-6"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"></path>
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
-              <h1 className="text-[18vw] sm:text-[16vw] lg:text-[14vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
-                RESEARCH
-              </h1>
-              <p className="text-white text-sm sm:text-base">©copyright</p>
-            </div>
+            <p className="text-white text-[10px] sm:text-xs text-center">©{new Date().getFullYear()} ROADMASTER - ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>

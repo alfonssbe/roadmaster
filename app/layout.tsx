@@ -14,13 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {
       template: '%s | Roadmaster',
-      default: 'Legacy Speaker | 100% Karya Anak Bangsa',
+      default: 'Roadmaster | Audio Berkualitas Tinggi untuk Hiburan Anda',
     },
-    description: 'Speaker mobil asli buatan Indonesia produksi dari CV. Sinar Baja Electric. Manjakan telinga Anda dengan suara jernih dan bass kuat!',
-    keywords: 'Roadmaster, Karya Anak Bangsa, Speaker Indonesia, Loudspeaker Indonesia, Car Speaker, Audio Mobil',
+    description: 'Roadmaster menawarkan perangkat audio dengan kualitas suara luar biasa. Nikmati musik, film, dan hiburan lainnya di mana saja dengan desain elegan dan kemudahan penggunaan. Temukan pilihan yang sesuai dengan kebutuhan Anda di Roadmaster.',
+    keywords: 'audio, hiburan, kualitas suara, roadmaster, speaker party',
     openGraph: {
-      title: 'Legacy Speaker | 100% Karya Anak Bangsa',
-      description: 'Speaker mobil asli buatan Indonesia produksi dari CV. Sinar Baja Electric. Manjakan telinga Anda dengan suara jernih dan bass kuat!',
+      title: 'Roadmaster | Audio Berkualitas Tinggi untuk Hiburan Anda',
+      description: 'Roadmaster menawarkan perangkat audio dengan kualitas suara luar biasa. Nikmati musik, film, dan hiburan lainnya di mana saja dengan desain elegan dan kemudahan penggunaan. Temukan pilihan yang sesuai dengan kebutuhan Anda di Roadmaster.',
       url: `${baseUrl}`,
       siteName: 'Roadmaster',
       images: [
@@ -42,8 +42,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Legacy Speaker | 100% Karya Anak Bangsa',
-      description: 'Speaker mobil asli buatan Indonesia produksi dari CV. Sinar Baja Electric. Manjakan telinga Anda dengan suara jernih dan bass kuat!',
+      title: 'Roadmaster | Audio Berkualitas Tinggi untuk Hiburan Anda',
+      description: 'Roadmaster menawarkan perangkat audio dengan kualitas suara luar biasa. Nikmati musik, film, dan hiburan lainnya di mana saja dengan desain elegan dan kemudahan penggunaan. Temukan pilihan yang sesuai dengan kebutuhan Anda di Roadmaster.',
       images: [
         {
           url: `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
@@ -76,15 +76,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-      {/* <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Legacy Speaker",
-          "url": "https://www.legacy.us.com",
-          "logo": "https://www.legacy.us.com/images/legacy/logo_legacy.webp"
-        })
-      }} /> */}
         <link
           rel="preload"
           href="/images/roadmaster/navbarbg.webp"

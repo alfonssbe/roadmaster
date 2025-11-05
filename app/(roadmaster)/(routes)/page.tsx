@@ -1,12 +1,13 @@
 "use client"
 
 import { useEffect } from "react"
-import Hero from "./components/hero";
 import Footer from "./components/footer";
 import Lenis from 'lenis'
 import Navbar from "../components/navbar";
 import { useScrollDirection } from "@/app/hooks/use-scroll-direction";
 import TentangKami from "./components/about";
+import Hero from "./components/Hero";
+import Featured from "./components/featured";
 
 export default function Home() {
   const baseUrl = process.env.NEXT_PUBLIC_ROOT_URL ?? 'http://localhost:3003';
@@ -17,7 +18,7 @@ export default function Home() {
     "url": `${baseUrl}`,
     "logo": `${baseUrl}/images/roadmaster/logo_roadmaster.webp`,
     "sameAs": [
-      "https://www.instagram.com/legacy.speaker",
+      "https://www.instagram.com/roadmasterspeaker",
     ]
   };
   const isVisible = useScrollDirection()
@@ -47,8 +48,8 @@ export default function Home() {
         <Navbar />
       </div>
       <Hero />
-      {/* <Featured /> */}
       <TentangKami/>
+      <Featured/>
       <Footer />
     </main>
   )

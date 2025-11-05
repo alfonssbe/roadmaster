@@ -14,7 +14,7 @@ export default function RootRoadmasterLayout({
         <main className="grow">
           {children}
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   )

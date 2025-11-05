@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 import { checkAuth, checkBearerAPI, getSession } from "@/app/admin/actions";
 import { revalidatePath } from "next/cache";
+import path from 'path';
+import fs from 'fs/promises';
 
 const slugify = (str: string): string => str.toLowerCase()
                             .replace(/[^a-z0-9]+/g, '-')
@@ -114,7 +116,7 @@ export async function PATCH(
 
     const body = await req.json();
 
-    const { type, name, description } = body;
+    const { type, name, description, thumbnail_url } = body;
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });
@@ -128,86 +130,86 @@ export async function PATCH(
       return NextResponse.json("unauthorized");
     }    
 
-    const initial = await prismadb.allCategory.findFirst({
-      where:{
-        id: params.categoryId,
-        brandId: params.brandId
-      },
-      select:{
-        name: true
-      }
-    })
 
-    if(initial){
-      if(initial.name ===  name){
-        await prismadb.allCategory.update({
-          where: {
-            id: params.categoryId
-          },
-          data: {
-            type: type,
-            name: name,
-            slug: slugify(name),
-            description: description,
-            thumbnail_url: "",
-            updatedAt: new Date(),
-            updatedBy: session.name,
-          }
-        });
 
-        await prismadb.allProductCategory.updateMany({
-          where: {
-            categoryId: params.categoryId,
-            type
-          },
-          data:{
-            name,
-            slug: slugify(name),
-            updatedAt: new Date(),
+
+
+
+
+    if(params.categoryId != 'new'){
+      const oldUrl = await prismadb.allCategory.findMany({
+        where: {
+          id: params.categoryId
+        },
+        select:{
+          thumbnail_url: true
+        }
+      })
+      //Delete physical files
+      if(oldUrl && oldUrl.length > 0) {
+        oldUrl.map( async (val) => {
+          const ImgPath = path.join(process.cwd(), val.thumbnail_url);
+          try {
+            await fs.unlink(ImgPath);
+          } catch (error) {
+            console.warn(`Could not delete file ${val.thumbnail_url}:`, error);
           }
         })
-        return NextResponse.json("same")
       }
+
+      await prismadb.allCategory.update({
+        where: {
+          id: params.categoryId
+        },
+        data: { 
+          type,
+          name,
+          slug: slugify(name),
+          description,
+          thumbnail_url,
+          updatedAt: new Date(),
+          updatedBy: session.name,
+        },
+      })
+      await prismadb.allProductCategory.updateMany({
+        where: {
+          categoryId: params.categoryId,
+          type
+        },
+        data:{
+          name,
+          slug: slugify(name),
+          updatedAt: new Date(),
+        }
+      })
+    }
+    else{
+      await prismadb.allCategory.create({
+        data: {
+          name,
+          description,
+          brandId: params.brandId,
+          type,
+          slug: slugify(name),
+          thumbnail_url,
+          updatedAt: new Date(),
+          createdAt: new Date(),
+          updatedBy: session.name,
+        },
+      })
+      await prismadb.allProductCategory.updateMany({
+        where: {
+          categoryId: params.categoryId,
+          type
+        },
+        data:{
+          name,
+          updatedAt: new Date(),
+          slug: slugify(name)
+        }
+      })
     }
 
-    const duplicates = await prismadb.allCategory.findFirst({
-      where:{
-        name,
-        type,
-        brandId: params.brandId
-      }
-    })
-
-    if(duplicates){
-      return NextResponse.json("duplicate")
-    }
-
-    await prismadb.allCategory.update({
-      where: {
-        id: params.categoryId
-      },
-      data: {
-        type: type,
-        name: name,
-        slug: slugify(name),
-        description: description,
-        thumbnail_url: "",
-        updatedAt: new Date(),
-        updatedBy: session.name,
-      }
-    });
-    
-    await prismadb.allProductCategory.updateMany({
-      where: {
-        categoryId: params.categoryId,
-        type
-      },
-      data:{
-        name,
-        updatedAt: new Date(),
-        slug: slugify(name)
-      }
-    })
 
     if( type === "Sub Category" ){
       revalidatePath(`/drivers/${slugify(name)}`);

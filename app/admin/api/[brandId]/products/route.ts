@@ -2,18 +2,10 @@ import { NextResponse } from 'next/server';
 
 import prismadb from '@/lib/prismadb';
 import { checkAuth, checkBearerAPI, getSession } from '@/app/admin/actions';
-import { Cover_Image, Drawing_Image, Graph_Image, Image_Catalogues, Impedance_Image, multipleDatasheetProduct } from '@prisma/client';
-import { revalidatePath } from 'next/cache';
-
-const slugify = (str: string): string => {
-  const normalizedStr = str.replace(/["“”‟″‶〃״˝ʺ˶ˮײ]/g, "'");
-  const strAfterQuote = normalizedStr.includes("'") ? normalizedStr.split("'")[1] : normalizedStr;
-  const strBeforeSlash = strAfterQuote.includes('/') ? strAfterQuote.split('/')[0] : strAfterQuote;
-  const strWithoutSatori = strBeforeSlash.replace(/SATORI/gi, '');
-  return strWithoutSatori.toLowerCase()
-                         .replace(/[^a-z0-9]+/g, '-')
-                         .replace(/(^-|-$)+/g, '');
-};
+ 
+const slugify = (str: string): string => str.toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-')
+                            .replace(/(^-|-$)+/g, '');
 
 export async function POST(req: Request, props: { params: Promise<{ brandId: string }> }) {
   const params = await props.params;
@@ -31,14 +23,14 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
 
     const body = await req.json();
 
-    const { name, description, isFeatured, isArchived, isNewProduct, images_catalogues, cover_img, drawing_img, graph_img, impedance_img, multipleDatasheetProduct } = body;
+    const { name, description, cover_img } = body;
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });
     }
 
     if (!params.brandId) {
-      return new NextResponse("brand id is required", { status: 400 });
+      return new NextResponse("Brand id is required", { status: 400 });
     }
     
     if(!(await checkAuth(session.isAdmin!, params.brandId, session.userId!))){
@@ -47,6 +39,7 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
 
     const duplicates = await prismadb.product.findFirst({
       where:{
+        brandId: params.brandId,
         name,
       }
     })
@@ -55,132 +48,21 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
       return NextResponse.json("duplicate")
     }
 
-    try {
-      const product = await prismadb.product.create({
-        data: {
-          name: name,
-          slug: slugify(name),
-          description,
-          isFeatured,
-          isArchived,
-          isNewProduct,
-          updatedBy: session.name,
-          brandId: params.brandId,
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-      });
-
-
-      if(images_catalogues.length!=0){
-        images_catalogues.map(async (value: Image_Catalogues) => {
-          if(value.url!=''){
-            await prismadb.image_Catalogues.create({
-              data:{
-                productId: product.id,
-                url:value.url,
-                name: value.name,
-                createdAt: new Date(),
-                updatedAt: new Date()
-              }
-            })
-          }
-        })
+    await prismadb.product.create({
+      data: {
+        name,
+        description,
+        brandId: params.brandId,
+        slug: slugify(name),
+        cover_img,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        updatedBy: session.name,
       }
-
-      if(multipleDatasheetProduct.length!=0){
-        multipleDatasheetProduct.map(async (datasheet: multipleDatasheetProduct) => {
-          if(datasheet.url!=''){
-            await prismadb.multipleDatasheetProduct.create({
-              data:{
-                productId: product.id,
-                url:datasheet.url,
-                name: datasheet.name
-              }
-            })
-          }
-        })
-      }
-
-      if(cover_img.length!=0){
-        cover_img.map(async (value: Cover_Image) => {
-          if(value.url!=''){
-            await prismadb.cover_Image.create({
-              data:{
-                productId: product.id,
-                url:value.url,
-                createdAt: new Date(),
-                updatedAt: new Date()
-              }
-            })
-          }
-        })
-      }
-
-      if(drawing_img.length!=0){
-        drawing_img.map(async (value: Drawing_Image) => {
-          if(value.url!=''){
-            await prismadb.drawing_Image.create({
-              data:{
-                productId: product.id,
-                url:value.url,
-                createdAt: new Date(),
-                updatedAt: new Date()
-              }
-            })
-          }
-        })
-      }
-
-      if(graph_img.length!=0){
-        graph_img.map(async (value: Graph_Image) => {
-          if(value.url!=''){
-            await prismadb.graph_Image.create({
-              data:{
-                productId: product.id,
-                url:value.url,
-                createdAt: new Date(),
-                updatedAt: new Date()
-              }
-            })
-          }
-        })
-      }
-
-      if(impedance_img.length!=0){
-        impedance_img.map(async (value: Impedance_Image) => {
-          if(value.url!=''){
-            await prismadb.impedance_Image.create({
-              data:{
-                productId: product.id,
-                url:value.url,
-                createdAt: new Date(),
-                updatedAt: new Date()
-              }
-            })
-          }
-        })
-      }
-
-      await prismadb.product.update({
-        where:{
-          id: product.id
-        },
-        data: {
-          updatedBy: session.name,
-          updatedAt: new Date()
-        }
-      });
-
-    } catch (err) {
-      console.error("Database error:", err);
-    }
-
-    revalidatePath(`/products/${slugify(name)}`);
-  
+    });
     return NextResponse.json("success");
   } catch (error) {
-    console.log('[PRODUCTS_POST]', error);
+    console.log('[PRODUCT_POST]', error);
     return new NextResponse("Internal error", { status: 500 });
   }
 };
@@ -188,31 +70,19 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
 export async function GET(req: Request, props: { params: Promise<{ brandId: string }> }) {
   const params = await props.params;
   try {
-
     if (!params.brandId) {
-      return new NextResponse("brand id is required", { status: 400 });
+      return new NextResponse("Brand id is required", { status: 400 });
     }
 
     const products = await prismadb.product.findMany({
       where: {
         brandId: params.brandId,
-        isArchived: false,
-      },
-      include: {
-        cover_img: true,
-        drawing_img: true,
-        graph_img: true,
-        impedance_img: true,
-        allCat: true,
-      },
-      orderBy: {
-        createdAt: 'desc',
       }
     });
-
+  
     return NextResponse.json(products);
   } catch (error) {
-    console.log('[PRODUCTS_GET]', error);
+    console.log('[PRODUCT_GET]', error);
     return new NextResponse("Internal error", { status: 500 });
   }
 };

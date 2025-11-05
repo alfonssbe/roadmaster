@@ -23,10 +23,6 @@ const ProductsPage = async (
     where: {
       brandId: params.brandId
     },
-    include: {
-      images_catalogues: true,
-      cover_img: true,
-    },
     orderBy: {
       updatedAt: 'desc'
     }
@@ -36,9 +32,7 @@ const ProductsPage = async (
     id: item.id,
     name: item.name,
     desc: item.description,
-    productImageUrl: item.cover_img.map((img_url) => (
-      img_url.url
-    )),
+    productImageUrl: item.cover_img,
     updatedAt: format(item.updatedAt, 'MMMM do, yyyy'),
     updatedBy: item.updatedBy,
     isFeatured: item.isFeatured,

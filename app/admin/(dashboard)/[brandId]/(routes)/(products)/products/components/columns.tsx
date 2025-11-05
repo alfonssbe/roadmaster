@@ -11,7 +11,7 @@ export type ProductColumn = {
   updatedBy: string;
   isFeatured: boolean;
   isArchived: boolean;
-  productImageUrl: string[];
+  productImageUrl: string;
 }
 
 export const columns: ColumnDef<ProductColumn>[] = [

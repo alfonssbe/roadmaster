@@ -50,18 +50,12 @@ model Product {
   name        String    @db.Text
   slug        String    @db.Text
   description String    @db.Text
-  cover_img   Cover_Image[]
+  cover_img   String    @db.Text
   featuredDesc  String  @db.Text  @default("")
   isFeatured  Boolean   @default(false)
   isArchived  Boolean   @default(false)
-  isNewProduct  Boolean @default(false)
-  images_catalogues      Image_Catalogues[]
-  drawing_img Drawing_Image[]
-  graph_img   Graph_Image[]
-  impedance_img  Impedance_Image[]
   featured_img   Featured_Image[]
   allCat      AllProductCategory[]
-  multipleDatasheetProduct multipleDatasheetProduct[]
   connectorSpecifications specificationconnector[] @relation("ProductToConnectorSpecification")
 
   updatedBy   String    @db.Text  @default("")
@@ -107,18 +101,6 @@ model AllCategory {
   @@index([brandId])
 }
 
-model Image_Catalogues {
-  id          String   @id @default(uuid())
-  productId   String   // Foreign Key to Product
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String   @db.Text
-  name        String   @db.Text @default("")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([productId])
-}
-
 model News_Image {
   id          String   @id @default(uuid())
   newsId      String   
@@ -130,50 +112,6 @@ model News_Image {
   @@index([newsId])
 }
 
-model Cover_Image {
-  id          String   @id @default(uuid())
-  productId   String   // Foreign Key to Product
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String   @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([productId])
-}
-
-model Drawing_Image {
-  id          String   @id @default(uuid())
-  productId   String   // Foreign Key to Product
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String   @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([productId])
-}
-
-model Graph_Image {
-  id          String   @id @default(uuid())
-  productId   String   // Foreign Key to Product
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String   @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([productId])
-}
-
-model Impedance_Image {
-  id          String   @id @default(uuid())
-  productId   String   // Foreign Key to Product
-  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String   @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([productId])
-}
-
 model Featured_Image {
   id          String   @id @default(uuid())
   productId   String   // Foreign Key to Product
@@ -183,17 +121,6 @@ model Featured_Image {
   updatedAt   DateTime @updatedAt
 
   @@index([productId])
-}
-
-model multipleDatasheetProduct {
-  id          String    @id @default(uuid())
-  productId  String   // Foreign Key to Product
-  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url         String    @db.Text  @default("")
-  name        String    @db.Text  @default("")
-  
-  @@index([productId])
-
 }
 
 model AllProductCategory {

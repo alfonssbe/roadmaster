@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Featured() {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-foreground">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen xl:px-20 lg:px-14 px-10 bg-background">
       <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2 object-right">
         <Image
           src="/images/roadmaster/tentang-kami.webp"
