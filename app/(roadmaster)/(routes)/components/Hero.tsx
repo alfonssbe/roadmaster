@@ -17,18 +17,15 @@ export default function Hero() {
     <div className="h-screen overflow-hidden">
       {/* <Header /> */}
       <motion.div ref={container} style={{ y }} className="relative h-full">
-        <div className="bg-[url(/images/roadmaster/hero-image.jpg)] w-screen h-screen">
+        <div className="bg-[url(/images/roadmaster/hero-image.jpeg)] bg-cover bg-center bg-no-repeat w-screen h-fit">
           <div className="bg-foreground/30 w-screen h-screen backdrop-brightness-50"></div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-start z-10">
-          <div className="text-left text-white max-w-3xl px-6">
+        <div className="absolute inset-0 flex items-center justify-center z-10 md:mt-8">
+          <div className="text-center text-white max-w-3xl px-6">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Home Audio Dengan Suara Berkualitas & Desain Elegan</h1>
-            <p className="text-base md:text-lg leading-relaxed mb-8">
+            <p className="text-base md:text-lg leading-relaxed mb-8 text-background/70">
               Rasakan kejernihan dan kekuatan suara Roadmaster, menghadirkan pengalaman audio luar biasa di setiap ruang!
             </p>
-            {/* <button className="px-4 py-2 border-2 border-white bg-transparent text-white text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer">
-              GET STARTED
-            </button> */}
           </div>
         </div>
       </motion.div>

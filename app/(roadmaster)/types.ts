@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { AllProductCategory, Prisma, Product } from "@prisma/client";
 
 export interface FeaturedProducts {
     id: string;
@@ -187,3 +187,13 @@ export interface AllFilterProductsOnlyType {
   products: AllProductsJsonType
   specs: ChildSpecificationProp[]
 }
+
+
+
+
+
+
+
+export type ProductWithRelations = Product & {
+  allCat: AllProductCategory[];
+};

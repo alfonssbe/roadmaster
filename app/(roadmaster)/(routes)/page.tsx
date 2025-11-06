@@ -49,7 +49,7 @@ export default function Home() {
       </div>
       <Hero />
       <TentangKami/>
-      <Featured/>
+      <Featured />
       <Footer />
     </main>
   )

@@ -78,18 +78,13 @@ function Navbar() {
             // fill
           />
         </Link>
-        {/* {isDesktop && */}
-          <div className="hidden lg:flex justify-center px-8">
+          {/* <div className="hidden lg:flex justify-center px-8">
             <NavigationMenu>
               <NavigationMenuList className=" flex items-center">
                 <NavigationMenuItem>
                     <Link href={'/drivers'} passHref>
                     <NavigationMenuTrigger className={navigationMenuTriggerStyle().concat(` bg-transparent`)} onMouseEnter={() => {
                       setnavbarContentOpen(true)
-                      // setHoveredDriverMenu("");
-                      // setHoveredDriverSubMenu("");
-                      // setDriversSubMenu(EmptyMenu);
-                      // setDriversSubSubMenu(EmptyMenu);
                     }}>
                       PRODUK
                     </NavigationMenuTrigger>
@@ -102,60 +97,46 @@ function Navbar() {
                 
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/news" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-primary ${pathname.includes('news') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         BERITA
-                      {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/about-us" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-primary ${pathname.includes('about-us') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         TENTANG KAMI
-                      {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href="/catalog" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                      {/* <div className={`hover:text-primary ${pathname.includes('catalog') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                         KATALOG
-                      {/* </div> */}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/distributors" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                    {/* <div className={`hover:text-primary ${pathname.includes('distributors') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                       DISTRIBUTOR
-                    {/* </div> */}
                   </NavigationMenuLink>
               </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/contact" className={navigationMenuTriggerStyle().concat(` bg-transparent`)}>
-                    {/* <div className={`hover:text-primary ${pathname.includes('contact') ?'text-foreground' :navbarBg ? 'text-black' : ''}`}> */}
                       KONTAK KAMI
-                    {/* </div> */}
                   </NavigationMenuLink>
               </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-          </div>
-        {/* } */}
+          </div> */}
       </div>  
-      {/* {isDesktop && */}
-        <div className="w-1/4 hidden lg:flex items-center justify-end">
+        {/* <div className="w-1/4 hidden lg:flex items-center justify-end">
           <div className={`flex items-center justify-end font-bold text-white hover:text-primary hover:cursor-pointer`} onMouseEnter={() => setSearchBoxOpen(false)} onClick={() => searchBoxOpen? setSearchBoxOpen(false): setSearchBoxOpen(true)}>
           <a className='xl:block hidden'>Search</a> 
             <Search size={25} className="m-2 hover:cursor-pointer" />
           </div>
-        </div>
-      {/* } */}
+        </div> */}
 
 
       {searchBoxOpen && <DynamicSearchboxLoad/>}
 
 
       {/* MAIN MENU TABLET & MOBILE VIEW */}
-      {/* {isMobile &&  */}
-      <div className='flex lg:hidden'>
+      {/* <div className='flex lg:hidden'>
         <Button variant={null} asChild className='px-2'>
           <div className={`w-full text-base hover:text-primary ${navbarBg ? 'text-black' : 'text-white'}`}
               onMouseDown={() => setSearchBoxOpen(false)}
@@ -164,7 +145,7 @@ function Navbar() {
               className='flex items-center text-base'
             >
               <Search size={25} className="ml-2 hover:cursor-pointer" />
-              {/* <SearchBox mobile={true}/> */}
+
             </div>
           </div>
         </Button>
@@ -178,12 +159,10 @@ function Navbar() {
             {navbarContentMobileOpen && <DynamicNavbarContentMobileLoad/>}
           </SheetContent>
         </Sheet>
-        </div>
+      </div> */}
 
-      {/* } */}
       </div>
     </nav>
-  // </div>
   );
 }
 
