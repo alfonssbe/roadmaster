@@ -20,14 +20,17 @@ export default function Hero() {
         <div className="bg-[url(/images/roadmaster/hero-image.jpeg)] bg-cover bg-center bg-no-repeat w-screen h-fit">
           <div className="bg-foreground/30 w-screen h-screen backdrop-brightness-50"></div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center z-10 md:mt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }} className="absolute inset-0 flex items-center justify-center z-10 md:mt-8">
           <div className="text-center text-white max-w-3xl px-6">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Home Audio Dengan Suara Berkualitas & Desain Elegan</h1>
             <p className="text-base md:text-lg leading-relaxed mb-8 text-background/70">
               Rasakan kejernihan dan kekuatan suara Roadmaster, menghadirkan pengalaman audio luar biasa di setiap ruang!
             </p>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   )

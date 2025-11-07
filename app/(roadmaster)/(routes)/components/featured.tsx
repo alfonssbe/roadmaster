@@ -9,6 +9,7 @@ import getAllProductsAndCategory from "../../actions/get-all-products-and-catego
 import { AllCategory, AllProductCategory } from "@prisma/client"
 import { ProductWithRelations } from "../../types"
 import SwiperCarouselSelectedCat from "../../components/ui/swipercarouselSelectedCat"
+import { Loader } from "../../components/ui/loader"
 
 const API=`${process.env.NEXT_PUBLIC_ROOT_URL}/${process.env.NEXT_PUBLIC_FETCH_ALL_PRODUCTS_AND_CATEGORY}`;
 
@@ -150,13 +151,15 @@ export default function Featured() {
   }, []); 
 
   return (
-    <div className="min-h-screen">
+    <div className="md:h-screen min-h-3/4">
       {/* <div className="container mx-auto px-4 py-20"> */}
      {/* <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen bg-background"> */}
       {loading ?
-        <div className="w-full h-full flex items-center justify-center">Loading...</div>
+        <div className="w-full h-full flex items-center justify-center bg-foreground/90">
+          <Loader />
+        </div>
       :
-        <div className="h-screen min-w-screen relative">
+        <div className="md:h-screen h-3/4 min-w-screen relative">
           {activeCategory && (
             <div className="absolute inset-0">
               <Image
@@ -176,15 +179,16 @@ export default function Featured() {
           )}
 
           <div className="relative z-10">
-            <div className="flex flex-wrap gap-2 md:gap-4 p-6 md:p-8 lg:p-12">
+            <div className="flex flex-wrap gap-2 md:gap-4 p-6 md:p-8 lg:p-12 justify-center">
+              <div className="text-background md:text-2xl text-lg font-bold w-full flex justify-center items-center text-center text-shadow-2xs">Pilih Serimu!</div>
               {allCat.map((category) => (
                 <Button
                   key={category.name}
                   onClick={() => handleCategoryChange(category)}
                   className={`hover:cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ${
-                    activeCategory === category ? "bg-white text-black" : "text-white/80 hover:text-white hover:bg-white/10"
-                  }`}
-                  variant={"ghost"}
+                    activeCategory === category ? "bg-primary text-background" : ""
+                  } hover:bg-primary`}
+                  variant={"secondary"}
                 >
                   {category.name}
                 </Button>

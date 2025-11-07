@@ -61,16 +61,21 @@ function Navbar() {
     //   <FullScreenLoader isVisible={loading} />
     // :
     // <div className={`${navbarBg ? 'bg-foreground/30 backdrop-blur-md' : 'bg-background/30 backdrop-blur-md'} shadow-lg transition-all duration-300 ease-in-out m-8 rounded-full`}>
-    <nav className="container mx-auto pt-4 h-fit w-fit">
-    <div className={`bg-foreground/40 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out rounded-full flex items-center justify-between p-2`}>
+
+
+    
+    // <nav className="container mx-auto pt-4 h-fit w-fit">
+    <nav className="h-fit w-fit">
+    {/* <div className={`bg-background/40 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out rounded-full flex items-start justify-between py-2 px-4`}> */}
+    <div className={`flex items-start justify-between py-2 px-4`}>
       <div className="w-3/4 flex">
         <Link
           href={'/'}
-          className="flex items-center"
+          className="flex md:items-start items-center"
         >
           <Image
             src={`/images/roadmaster/logo_roadmaster.webp`}
-            className='cursor-pointer max-w-fit h-14'
+            className='cursor-pointer max-w-fit h-12'
             alt="Logo Roadmaster"
             width={1000}
             height={1000}            
@@ -132,7 +137,7 @@ function Navbar() {
         </div> */}
 
 
-      {searchBoxOpen && <DynamicSearchboxLoad/>}
+      {/* {searchBoxOpen && <DynamicSearchboxLoad/>} */}
 
 
       {/* MAIN MENU TABLET & MOBILE VIEW */}

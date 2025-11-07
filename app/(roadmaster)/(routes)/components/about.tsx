@@ -18,17 +18,47 @@ export default function TentangKami() {
       className="relative flex items-center justify-center h-screen overflow-hidden"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
-        <motion.div style={{ y }} className="relative w-full h-full">
-          <Image src="/images/roadmaster/bg-cover.webp" fill alt="Background Cover Tentang Kami" style={{ objectFit: "cover" }} />
+      {/* Background Parallax */}
+      <div className="fixed top-0 left-0 w-full h-full z-0">
+        <motion.div style={{ y }} className="relative w-full h-full scale-125">
+          <div className="bg-[url(/images/roadmaster/bg-cover.webp)] bg-cover bg-center bg-no-repeat w-full h-screen">
+            <div className="bg-foreground/30 w-full h-full backdrop-brightness-50"></div>
+          </div>
         </motion.div>
       </div>
 
-      <Image src={'/images/roadmaster/logo_roadmaster_2.webp'} alt="Logo Roadmaster 2" width={100} height={100} className="absolute top-6 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg"/>
+      <div className="relative z-10 md:grid md:grid-cols-2 flex flex-col items-center justify-center gap-8 lg:gap-0 lg:px-12 md:px-8 px-4 container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col items-center md:items-end md:text-right gap-4 md:order-1 order-2"
+        >
+          <p className="text-background text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-lg max-w-lg font-bold md:text-end text-center">
+            Roadmaster menghadirkan pengalaman audio yang kaya dan kuat. Bass yang dalam dan berkarakter menjadikan
+            setiap hiburan di rumah terasa lebih hidup dan memikat.
+          </p>
 
-      <p className="absolute bottom-6 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10 text-end text-shadow-lg/30">
-        Roadmaster menghadirkan pengalaman audio yang kaya dan kuat. Bass yang dalam dan berkarakter menjadikan setiap hiburan di rumah terasa lebih hidup dan memikat.
-      </p>
+          <div className="w-12 h-1 bg-background/40 rounded-full mt-2"></div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center md:order-2 order-1"
+        >
+          <div className="relative">
+            <Image
+              src="/images/roadmaster/tentang-kami.webp"
+              alt="Tentang Roadmaster"
+              width={400}
+              height={400}
+              className="w-56 md:w-80 h-auto"
+            />
+          </div>
+        </motion.div>
+      </div>
     </div>
   )
 }
