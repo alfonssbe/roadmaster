@@ -30,8 +30,9 @@ export default function TentangKami() {
       <div className="relative z-10 md:grid md:grid-cols-2 flex flex-col items-center justify-center gap-8 lg:gap-0 lg:px-12 md:px-8 px-4 container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center md:items-end md:text-right gap-4 md:order-1 order-2"
         >
           <p className="text-background text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-lg max-w-lg font-bold md:text-end text-center">
@@ -44,8 +45,9 @@ export default function TentangKami() {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex justify-center md:order-2 order-1"
         >
           <div className="relative">

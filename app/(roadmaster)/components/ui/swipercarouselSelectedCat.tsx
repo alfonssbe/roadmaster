@@ -37,11 +37,7 @@ export default function SwiperCarouselSelectedCat({ products }: SwiperCarouselPr
           1024: {
             slidesPerView: 2,
             spaceBetween: 20,
-          },
-          1536: {
-            slidesPerView: 2.5,
-            spaceBetween: 20,
-          },
+          }
         }}
         // navigation={true}
         loop={true}

@@ -1,6 +1,3 @@
-import Footer from './components/footer'
-import Navbar from './components/navbar'
-import NextTopLoader from "nextjs-toploader";
 
 export default function RootRoadmasterLayout({
   children,
