@@ -23,7 +23,7 @@ const nextConfig = {
     },
     {
       protocol: 'https', // for production
-      hostname: 'www.roadmaster.com',
+      hostname: 'roadmaster.webdemosbe.xyz',
       port: '',
       pathname: '/uploads/**',
     },

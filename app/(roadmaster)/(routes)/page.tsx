@@ -50,7 +50,7 @@ export default function Home() {
         <Navbar />
       </div> */}
       <div
-        className={`fixed top-0 left-0 right-0 z-50 p-6 transition-transform duration-700 md:left-0 md:right-0 w-full md:max-w-fit flex justify-center md:justify-between`}
+        className={`fixed top-0 left-0 right-0 z-50 p-4 transition-transform duration-700 md:left-0 md:right-0 w-full md:max-w-fit flex justify-center md:justify-between`}
       >
         <Navbar />
       </div>

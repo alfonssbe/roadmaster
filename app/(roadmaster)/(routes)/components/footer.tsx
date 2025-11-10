@@ -14,10 +14,10 @@ export default function Footer() {
               <Link href={'/'} className="md:self-start self-center">
                 <Image
                   src={`/images/roadmaster/logo_roadmaster.webp`}
-                  className='cursor-pointer max-w-fit h-12'
+                  className="cursor-pointer h-auto max-h-10 w-auto"
                   alt="Logo Roadmaster"
-                  width={1000}
-                  height={1000}            
+                  width={500}
+                  height={500}            
                   priority
                 />
               </Link>

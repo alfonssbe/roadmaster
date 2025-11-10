@@ -65,7 +65,7 @@ export default function SwiperCarouselSelectedCat({ products }: SwiperCarouselPr
             <Dialog>
               <DialogTrigger className='w-full'>
                 <div className="w-full h-72 flex items-center justify-center">
-                  <div className="w-full h-full bg-foreground/60 rounded-2xl overflow-hidden shadow-lg border-2 border-background/50 hover:border-primary transition-all duration-500 ease-in-out">
+                  <div className="w-full h-full bg-foreground/60 rounded-2xl overflow-hidden shadow-lg border-2 border-background/50 hover:border-primary transition-all duration-500 ease-in-out p-4">
                     <div className="grid grid-cols-2 gap-6 h-full items-center">
                       <div className="col-span-1 flex items-center justify-center">
                         <Image
@@ -82,15 +82,16 @@ export default function SwiperCarouselSelectedCat({ products }: SwiperCarouselPr
                       </div>
 
                       <div className="col-span-1 flex flex-col justify-center h-full overflow-y-auto text-start">
-                        <h3 className="text-2xl md:text-3xl font-bold text-background text-balance pb-2 line-clamp-2">
-                          {value.name}
-                        </h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-background text-balance mb-2 line-clamp-2">
+  {value.name}
+</h3>
+
                         {value.description &&
                           value.description !== "" &&
                           value.description !== "-" &&
                           value.description !== "<p></p>" &&
                           value.description !== "<p>-</p>" && (
-                            <div className="tiptap text-sm md:text-base line-clamp-4 overflow-hidden md:h-24 h-22">
+                            <div className="tiptap text-sm md:text-base line-clamp-4 overflow-hidden">
                               <div
                                 dangerouslySetInnerHTML={{
                                   __html: DOMPurify.sanitize(value.description, {
@@ -120,7 +121,7 @@ export default function SwiperCarouselSelectedCat({ products }: SwiperCarouselPr
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="w-full rounded-2xl md:max-w-6xl h-3/4 flex items-center justify-center">
+              <DialogContent className="w-full rounded-2xl md:max-w-6xl h-3/4 flex items-center justify-center p-2">
                 <DialogHeader className="h-full flex flex-col justify-center w-full">
                   <DialogTitle>
                     <Image src={'/images/roadmaster/logo_roadmaster_black.webp'} alt="Logo Roadmaster Black" width={100} height={100} className="absolute md:w-20 w-12 h-fit top-3 left-3 text-white uppercase z-10 text-sm md:text-base lg:text-lg"/>
