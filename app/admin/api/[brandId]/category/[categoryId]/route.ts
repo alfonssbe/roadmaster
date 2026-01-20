@@ -17,7 +17,7 @@ export async function GET(req: Request, props: { params: Promise<{ categoryId: s
       return new NextResponse("Category id is required", { status: 400 });
     }
 
-    const Category = await prismadb.allCategory.findUnique({
+    const Category = await prismadb.allcategory.findUnique({
       where: {
         id: params.categoryId,
         type: "Category"
@@ -55,7 +55,7 @@ export async function DELETE(
       return NextResponse.json("unauthorized");
     }   
 
-    const stillused = await prismadb.allProductCategory.findMany({
+    const stillused = await prismadb.allproductcategory.findMany({
       where:{
         categoryId: params.categoryId,
         type: "Category"
@@ -66,18 +66,18 @@ export async function DELETE(
       return NextResponse.json("stillused")
     }
 
-    await prismadb.allCategory.deleteMany({
+    await prismadb.allcategory.deleteMany({
       where: {
         id: params.categoryId
       }
     });
 
-    const allSub = await prismadb.allProductCategory.findMany({
+    const allSub = await prismadb.allproductcategory.findMany({
       where:{
         type: "Sub Category",
       }
     })
-    const allSubSub = await prismadb.allProductCategory.findMany({
+    const allSubSub = await prismadb.allproductcategory.findMany({
       where:{
         type: "Sub Sub Category",
       }
@@ -137,7 +137,7 @@ export async function PATCH(
 
 
     if(params.categoryId != 'new'){
-      const oldUrl = await prismadb.allCategory.findMany({
+      const oldUrl = await prismadb.allcategory.findMany({
         where: {
           id: params.categoryId
         },
@@ -157,7 +157,7 @@ export async function PATCH(
         })
       }
 
-      await prismadb.allCategory.update({
+      await prismadb.allcategory.update({
         where: {
           id: params.categoryId
         },
@@ -171,7 +171,7 @@ export async function PATCH(
           updatedBy: session.name,
         },
       })
-      await prismadb.allProductCategory.updateMany({
+      await prismadb.allproductcategory.updateMany({
         where: {
           categoryId: params.categoryId,
           type
@@ -184,7 +184,7 @@ export async function PATCH(
       })
     }
     else{
-      await prismadb.allCategory.create({
+      await prismadb.allcategory.create({
         data: {
           name,
           description,
@@ -197,7 +197,7 @@ export async function PATCH(
           updatedBy: session.name,
         },
       })
-      await prismadb.allProductCategory.updateMany({
+      await prismadb.allproductcategory.updateMany({
         where: {
           categoryId: params.categoryId,
           type
@@ -215,7 +215,7 @@ export async function PATCH(
       revalidatePath(`/drivers/${slugify(name)}`);
     }
     else if( type === "Sub Sub Category" ){ 
-      const allSub = await prismadb.allProductCategory.findMany({
+      const allSub = await prismadb.allproductcategory.findMany({
         where:{
           type: "Sub Category",
         }

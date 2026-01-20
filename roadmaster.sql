@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2025 at 10:14 AM
+-- Generation Time: Jan 20, 2026 at 07:23 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -330,14 +330,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `refresh_token`, `create
 --
 ALTER TABLE `allcategory`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `AllCategory_brandId_idx` (`brandId`);
+  ADD KEY `allcategory_brandId_idx` (`brandId`);
 
 --
 -- Indexes for table `allproductcategory`
 --
 ALTER TABLE `allproductcategory`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `AllProductCategory_productId_idx` (`productId`);
+  ADD KEY `allproductcategory_productId_idx` (`productId`);
 
 --
 -- Indexes for table `brand`
@@ -368,35 +368,35 @@ ALTER TABLE `dynamicspecificationsubparent`
 --
 ALTER TABLE `featured_image`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Featured_Image_productId_idx` (`productId`);
+  ADD KEY `featured_image_productId_idx` (`productId`);
 
 --
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `News_brandId_idx` (`brandId`);
+  ADD KEY `news_brandId_idx` (`brandId`);
 
 --
 -- Indexes for table `news_image`
 --
 ALTER TABLE `news_image`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `News_Image_newsId_idx` (`newsId`);
+  ADD KEY `news_image_newsId_idx` (`newsId`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Product_brandId_idx` (`brandId`);
+  ADD KEY `product_brandId_idx` (`brandId`);
 
 --
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Roles_userId_idx` (`userId`);
+  ADD KEY `roles_userId_idx` (`userId`);
 
 --
 -- Indexes for table `specificationconnector`

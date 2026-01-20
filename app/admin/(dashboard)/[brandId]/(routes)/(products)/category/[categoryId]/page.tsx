@@ -8,7 +8,7 @@ const CategoryPage = async (
   }
 ) => {
   const params = await props.params;
-  const category = await prismadb.allCategory.findUnique({
+  const category = await prismadb.allcategory.findUnique({
     where: {
       id: params.categoryId,
       type: "Category"

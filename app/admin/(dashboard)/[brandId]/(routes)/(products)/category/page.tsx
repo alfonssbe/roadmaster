@@ -18,7 +18,7 @@ const CategoryPage = async (
     redirect("/admin")
   }
 
-  const category = await prismadb.allCategory.findMany({
+  const category = await prismadb.allcategory.findMany({
     where: {
       brandId: params.brandId,
       type: "Category"

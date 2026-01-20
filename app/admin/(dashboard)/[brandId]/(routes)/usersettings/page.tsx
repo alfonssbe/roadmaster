@@ -1,6 +1,6 @@
 import prismadb from "@/lib/prismadb";
 import { redirect } from "next/navigation";
-import { Roles } from "@prisma/client";
+import { roles } from "@prisma/client";
 import { UserColumn } from "./components/columns";
 import { UsersClient } from "./components/client";
 import { getSession } from "@/app/admin/actions";
@@ -26,7 +26,7 @@ const UserSettingPage = async () => {
 
   const userIds = user.map(one_user => one_user.id);
 
-  const roles: Roles[] = await prismadb.roles.findMany({
+  const roles: roles[] = await prismadb.roles.findMany({
     where: {
       userId: {
         in: userIds

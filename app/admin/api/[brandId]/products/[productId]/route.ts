@@ -77,10 +77,10 @@ export async function DELETE(
     await prismadb.specificationconnector.deleteMany({
       where: {productId: params.productId}
     })
-    await prismadb.allProductCategory.deleteMany({
+    await prismadb.allproductcategory.deleteMany({
       where: {productId: params.productId}
     })
-    await prismadb.featured_Image.deleteMany({
+    await prismadb.featured_image.deleteMany({
       where: {productId: params.productId}
     })
 

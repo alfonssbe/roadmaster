@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
-import { AllCategory, Product } from "@prisma/client";
+import { allcategory } from "@prisma/client";
 import { ProductWithRelations } from "../types";
 
-const getAllProductsAndCategory = async (api: string): Promise<[ProductWithRelations[], AllCategory[]]> => {
+const getAllProductsAndCategory = async (api: string): Promise<[ProductWithRelations[], allcategory[]]> => {
 
   const response = await fetch(api);
   if (!response.ok) {

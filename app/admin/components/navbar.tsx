@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MainNav } from "@/app/admin/components/main-nav";
 import LogoutButton from "@/app/admin/components/logout-button";
-import { Brand } from "@prisma/client";
+import { brand } from "@prisma/client";
 import { getSession } from "../actions";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -15,7 +15,7 @@ const Navbar = async () => {
   if(!session.isLoggedIn){
     redirect("/admin")
   }
-  let authorizedBrands: Brand[] = []
+  let authorizedBrands: brand[] = []
   if(session.isAdmin){
     const brands = await prismadb.brand.findMany({});
     authorizedBrands = brands

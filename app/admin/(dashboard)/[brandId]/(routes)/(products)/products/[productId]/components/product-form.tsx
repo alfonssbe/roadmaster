@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
-import { Product } from "@prisma/client"
+import { product } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
@@ -49,7 +49,7 @@ const formSchema = z.object({
 type ProductFormValues = z.infer<typeof formSchema>
 
 interface ProductFormProps {
-  initialData: Product | null;
+  initialData: product | null;
 };
 
 export const ProductForm: React.FC<ProductFormProps> = ({

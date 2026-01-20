@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
-import { Featured_Image, Product } from "@prisma/client"
+import { featured_image, product } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
@@ -39,8 +39,8 @@ const formSchema = z.object({
 type FeaturedProductFormValues = z.infer<typeof formSchema>
 
 interface FeaturedProductFormProps {
-  initialData: Product & {
-    featured_img: Featured_Image[]
+  initialData: product & {
+    featured_img: featured_image[]
   } | null;
 };
 
@@ -50,7 +50,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
   const params = useParams();
   const router = useRouter();
 
-  const [featuredImage, setFeaturedImage] = useState<Featured_Image>()
+  const [featuredImage, setFeaturedImage] = useState<featured_image>()
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File>();
 
@@ -74,7 +74,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
       setFeaturedImage(initialData.featured_img[0]);
     }
     else{
-      let temp: Featured_Image = {
+      let temp: featured_image = {
         id: Math.random().toString(),
         //@ts-ignore
         productId: params.featuredProductId,
@@ -97,7 +97,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
   };
 
   const deleteImage = async () => {
-    let temp: Featured_Image = {
+    let temp: featured_image = {
       id: '',
       //@ts-ignore
       productId: params.featuredProductId,
@@ -108,7 +108,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
     setFeaturedImage(temp)
   };
 
-  async function handleImageUpload (file: File): Promise<Featured_Image> {
+  async function handleImageUpload (file: File): Promise<featured_image> {
     if (file) {
       let updatedFeaturedImage = featuredImage;
       try {
@@ -120,7 +120,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
         return updatedFeaturedImage!;
         } catch (error) {
         console.error("Error uploading featured image:", error);
-        let temp: Featured_Image = {
+        let temp: featured_image = {
           id: Math.random().toString(),
           //@ts-ignore
           productId: params.productId,
@@ -131,7 +131,7 @@ export const FeaturedProductForm: React.FC<FeaturedProductFormProps> = ({
         return temp;
       }
     }
-    let temp: Featured_Image = {
+    let temp: featured_image = {
       id: Math.random().toString(),
       //@ts-ignore
       productId: params.productId,

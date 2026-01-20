@@ -11,7 +11,7 @@ function isSuperAdminOnlyRoute(url: string): boolean {
   return superadminOnlyRoutes.some(route => url.endsWith(route));
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const url = req.nextUrl.clone()
 
   //Reroute permanent

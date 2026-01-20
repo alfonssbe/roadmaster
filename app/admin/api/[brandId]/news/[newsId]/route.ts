@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 import prismadb from '@/lib/prismadb';
 import { checkAuth, checkBearerAPI, getSession } from '@/app/admin/actions';
-import { News_Image } from '@prisma/client';
+import { news_image } from '@prisma/client';
 import path from 'path';
 import fs from 'fs/promises';
 import { revalidatePath } from 'next/cache';
@@ -82,14 +82,14 @@ export async function PATCH(
 
 
       //NEWS_IMAGE
-      const newsImageOld = await prismadb.news_Image.findMany({
+      const newsImageOld = await prismadb.news_image.findMany({
         where: {
           newsId: params.newsId,
         },
       });
-      let finalfoundNewsImage : News_Image[] = []
+      let finalfoundNewsImage : news_image[] = []
       newsImageOld.forEach((val) => {
-        const found = news_img.find((value: News_Image) => value.url === val.url);
+        const found = news_img.find((value: news_image) => value.url === val.url);
         
         if (found && !finalfoundNewsImage.some((item) => item.url === found.url)) {
           finalfoundNewsImage.push(found);
@@ -112,7 +112,7 @@ export async function PATCH(
         }
       }
       //Delete oldNewsImage records
-      await prismadb.news_Image.deleteMany({
+      await prismadb.news_image.deleteMany({
         where: {
           newsId: params.newsId,
           url: {
@@ -121,11 +121,11 @@ export async function PATCH(
         },
       });
       if (news_img.length !== 0) {
-        const creations = news_img.map(async (value: News_Image) => {
+        const creations = news_img.map(async (value: news_image) => {
           if(value !== null && value !== undefined){
             const alreadyInDB = finalfoundNewsImage.some((val) => val.url === value.url);
             if (!alreadyInDB && value.url !== '') {
-              await prismadb.news_Image.create({
+              await prismadb.news_image.create({
                 data: {
                   newsId: params.newsId,
                   url: value.url,
@@ -176,10 +176,10 @@ export async function PATCH(
       })
 
       if(news_img.length!=0){
-        let tempImg: News_Image[] = []
-        news_img.map(async (value: News_Image, index: number) => {
+        let tempImg: news_image[] = []
+        news_img.map(async (value: news_image, index: number) => {
           if(value.url!=''){
-            let temp = await prismadb.news_Image.create({
+            let temp = await prismadb.news_image.create({
               data:{
                 newsId: new_news.id,
                 url:value.url,
@@ -228,7 +228,7 @@ export async function PATCH(
       }    
 
       //DELETE NEWS IMAGE
-      const newsImages = await prismadb.news_Image.findMany({
+      const newsImages = await prismadb.news_image.findMany({
         where: {
           newsId: params.newsId,
         },
@@ -246,7 +246,7 @@ export async function PATCH(
         }
       }
       //Delete news_Image records
-      await prismadb.news_Image.deleteMany({
+      await prismadb.news_image.deleteMany({
         where: {
           newsId: params.newsId,
         },

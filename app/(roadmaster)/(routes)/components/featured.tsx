@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import getAllProductsAndCategory from "../../actions/get-all-products-and-category"
-import type { AllCategory, AllProductCategory } from "@prisma/client"
+import type { allcategory, allproductcategory } from "@prisma/client"
 import type { ProductWithRelations } from "../../types"
 import SwiperCarouselSelectedCat from "../../components/ui/swipercarouselSelectedCat"
 import { Loader } from "../../components/ui/loader"
@@ -13,13 +13,13 @@ import { motion } from "framer-motion"
 const API = `${process.env.NEXT_PUBLIC_ROOT_URL}/${process.env.NEXT_PUBLIC_FETCH_ALL_PRODUCTS_AND_CATEGORY}`
 
 export default function Featured() {
-  const [allCat, setAllCat] = useState<AllCategory[]>([])
-  const [activeCategory, setActiveCategory] = useState<AllCategory | null>(null)
+  const [allCat, setAllCat] = useState<allcategory[]>([])
+  const [activeCategory, setActiveCategory] = useState<allcategory | null>(null)
   const [allProd, setAllProd] = useState<ProductWithRelations[]>([])
   const [allSelectedProd, setAllSelectedProd] = useState<ProductWithRelations[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [imageOpacity, setImageOpacity] = useState(1)
-  const [displayCategory, setDisplayCategory] = useState<AllCategory | null>(null)
+  const [displayCategory, setDisplayCategory] = useState<allcategory | null>(null)
 
   useEffect(() => {
     if (!activeCategory) return
@@ -36,13 +36,13 @@ export default function Featured() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [tempProd, tempAllCat]: [ProductWithRelations[], AllCategory[]] = await getAllProductsAndCategory(API)
+        const [tempProd, tempAllCat]: [ProductWithRelations[], allcategory[]] = await getAllProductsAndCategory(API)
         setAllCat(tempAllCat)
         setAllProd(tempProd)
         setActiveCategory(tempAllCat[0])
         const tempFirst: ProductWithRelations[] = []
         tempProd.forEach((val: ProductWithRelations) => {
-          const found = val.allCat.some((cat: AllProductCategory) => cat.categoryId === tempAllCat[0].id)
+          const found = val.allCat.some((cat: allproductcategory) => cat.categoryId === tempAllCat[0].id)
           if (found) tempFirst.push(val)
         })
         setAllSelectedProd(tempFirst)
@@ -55,11 +55,11 @@ export default function Featured() {
     fetchData()
   }, [])
 
-  const handleCategoryChange = (category: AllCategory) => {
+  const handleCategoryChange = (category: allcategory) => {
     setActiveCategory(category)
     const tempFirst: ProductWithRelations[] = []
     allProd.forEach((val: ProductWithRelations) => {
-      const found = val.allCat.some((cat: AllProductCategory) => cat.categoryId === category.id)
+      const found = val.allCat.some((cat: allproductcategory) => cat.categoryId === category.id)
       if (found) tempFirst.push(val)
     })
     setAllSelectedProd(tempFirst)

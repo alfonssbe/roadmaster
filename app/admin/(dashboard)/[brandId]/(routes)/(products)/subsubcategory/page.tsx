@@ -18,7 +18,7 @@ const SubSubCategoryPage = async (
     redirect("/admin")
   }
 
-  const subsubcategory = await prismadb.allCategory.findMany({
+  const subsubcategory = await prismadb.allcategory.findMany({
     where: {
       brandId: params.brandId,
       type: "Sub Sub Category"

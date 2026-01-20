@@ -6,7 +6,7 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
-import { AllCategory } from "@prisma/client"
+import { allcategory } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
@@ -31,7 +31,7 @@ const formSchema = z.object({
 type SubCategoryFormValues = z.infer<typeof formSchema>
 
 interface SubCategoryFormProps {
-  initialData: AllCategory | null;
+  initialData: allcategory | null;
 };
 
 export const SubCategoryForm: React.FC<SubCategoryFormProps> = ({

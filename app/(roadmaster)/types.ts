@@ -1,4 +1,4 @@
-import { AllProductCategory, Prisma, Product } from "@prisma/client";
+import { allproductcategory, Prisma, product } from "@prisma/client";
 
 export interface FeaturedProducts {
     id: string;
@@ -155,7 +155,7 @@ export interface ChildSpecificationProp {
   unit: string
 }
 
-export type SingleProductsType = Prisma.ProductGetPayload<{
+export type SingleProductsType = Prisma.productGetPayload<{
   include: {
     cover_img: true;
     images_catalogues: true,
@@ -194,6 +194,6 @@ export interface AllFilterProductsOnlyType {
 
 
 
-export type ProductWithRelations = Product & {
-  allCat: AllProductCategory[];
+export type ProductWithRelations = product & {
+  allCat: allproductcategory[];
 };

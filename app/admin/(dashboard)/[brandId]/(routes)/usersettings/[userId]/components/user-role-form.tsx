@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Brand, Roles } from "@prisma/client"
+import { brand, roles } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
@@ -13,8 +13,8 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 interface UserFormProps {
-  initialData: Roles[] | null;
-  allBrands: Brand[] | null;
+  initialData: roles[] | null;
+  allBrands: brand[] | null;
   userId: string;
   name: String;
 };
@@ -24,7 +24,7 @@ export const UserForm: React.FC<UserFormProps> = ({
 }) => {
   const params = useParams();
   const router = useRouter();
-  const [allSelectedRoles, setAllSelectedRoles] = useState<Roles[]>([]);
+  const [allSelectedRoles, setAllSelectedRoles] = useState<roles[]>([]);
   const [loading, setLoading] = useState(false);
   const [allChecked, setAllChecked] = useState<boolean[]>([]);
   
@@ -72,7 +72,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       setLoading(true);
       
       if (allSelectedRoles.length === 0) {
-        let tempRole: Roles[] = [{
+        let tempRole: roles[] = [{
           id: '0',
           userId: userId,
           brandId: '0',

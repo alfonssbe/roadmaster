@@ -1,11 +1,3 @@
-# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
-PassengerAppRoot "/home/sbacoust/roadmaster.com"
-PassengerBaseURI "/"
-PassengerNodejs "/home/sbacoust/nodevenv/roadmaster.com/20/bin/node"
-PassengerAppType node
-PassengerStartupFile server.js
-PassengerAppLogFile "/home/sbacoust/logs/roadmaster/passenger.log"
-# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
 Options +FollowSymLinks -Indexes
 IndexIgnore *
 DirectoryIndex
@@ -39,3 +31,11 @@ DirectoryIndex
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
 </IfModule>
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/sbacoust/roadmaster.webdemosbe.xyz"
+PassengerBaseURI "/"
+PassengerNodejs "/home/sbacoust/nodevenv/roadmaster.webdemosbe.xyz/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+PassengerAppLogFile "/home/sbacoust/logs/roadmaster_demo/passenger.log"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

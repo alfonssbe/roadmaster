@@ -37,7 +37,7 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
       return NextResponse.json("unauthorized");
     }    
 
-    const duplicates = await prismadb.allCategory.findFirst({
+    const duplicates = await prismadb.allcategory.findFirst({
       where:{
         brandId: params.brandId,
         name,
@@ -49,7 +49,7 @@ export async function POST(req: Request, props: { params: Promise<{ brandId: str
       return NextResponse.json("duplicate")
     }
 
-    const Category = await prismadb.allCategory.create({
+    const Category = await prismadb.allcategory.create({
       data: {
         name: name,
         description: description,
@@ -76,7 +76,7 @@ export async function GET(req: Request, props: { params: Promise<{ brandId: stri
       return new NextResponse("Brand id is required", { status: 400 });
     }
 
-    const categories = await prismadb.allCategory.findMany({
+    const categories = await prismadb.allcategory.findMany({
       where: {
         brandId: params.brandId,
         type: "Category"

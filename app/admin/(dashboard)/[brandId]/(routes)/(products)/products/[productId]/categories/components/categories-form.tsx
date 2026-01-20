@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from "axios"
 import { useEffect, useState } from "react"
 import { toast } from "react-hot-toast"
 import { ChevronsUpDown, Trash, } from "lucide-react"
-import { AllCategory, AllProductCategory, Product } from "@prisma/client"
+import { allcategory, allproductcategory, product } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
 
 import { Separator } from "@/components/ui/separator"
@@ -23,11 +23,11 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
  
 interface AllProductCategoryFormProps {
-  initialData: AllProductCategory[];
-  categories: AllCategory[];
-  subcategories: AllCategory[];
-  subsubcategories: AllCategory[];
-  myproduct: Product;
+  initialData: allproductcategory[];
+  categories: allcategory[];
+  subcategories: allcategory[];
+  subsubcategories: allcategory[];
+  myproduct: product;
 };
 
 
@@ -38,9 +38,9 @@ export const AllProductCategoryForm: React.FC<AllProductCategoryFormProps> = ({
   subsubcategories,
   myproduct,
 }) => {
-  const [allSelectedCategories, setAllSelectedCategories] = useState<AllCategory[]>([]);
-  const [allSelectedSubCategories, setAllSelectedSubCategories] = useState<AllCategory[]>([]);
-  const [allSelectedSubSubCategories, setAllSelectedSubSubCategories] = useState<AllCategory[]>([]);
+  const [allSelectedCategories, setAllSelectedCategories] = useState<allcategory[]>([]);
+  const [allSelectedSubCategories, setAllSelectedSubCategories] = useState<allcategory[]>([]);
+  const [allSelectedSubSubCategories, setAllSelectedSubSubCategories] = useState<allcategory[]>([]);
 
   const params = useParams();
   const router = useRouter();
@@ -57,11 +57,11 @@ export const AllProductCategoryForm: React.FC<AllProductCategoryFormProps> = ({
 
   useEffect(() => {
     if(initialData.length > 0 && myproduct){
-      let tempcat: AllCategory[] = [];
-      let tempsubcat: AllCategory[] = [];
-      let tempsubsubcat: AllCategory[] = [];
+      let tempcat: allcategory[] = [];
+      let tempsubcat: allcategory[] = [];
+      let tempsubsubcat: allcategory[] = [];
       initialData.forEach((item) => {
-        const category: AllCategory = {
+        const category: allcategory = {
           id: item.categoryId,
           brandId: myproduct.brandId,
           type: item.type,
@@ -145,7 +145,7 @@ export const AllProductCategoryForm: React.FC<AllProductCategoryFormProps> = ({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
-    const allSelected: AllCategory[] = [...allSelectedCategories, ...allSelectedSubCategories, ...allSelectedSubSubCategories];
+    const allSelected: allcategory[] = [...allSelectedCategories, ...allSelectedSubCategories, ...allSelectedSubSubCategories];
     try {
       setLoading(true);
       let response: AxiosResponse;

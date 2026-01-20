@@ -24,7 +24,7 @@ import { Heading } from "@/app/admin/components/ui/heading"
 import { AlertModal } from "@/app/admin/components/modals/alert-modal"
 import { ApiAlert } from "@/app/admin/components/ui/api-alert"
 import { useOrigin } from "@/app/admin/hooks/use-origin"
-import { Brand } from "@prisma/client"
+import { brand } from "@prisma/client"
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -33,7 +33,7 @@ const formSchema = z.object({
 type SettingsFormValues = z.infer<typeof formSchema>
 
 interface SettingsFormProps {
-  initialData: Brand;
+  initialData: brand;
 };
 
 export const SettingsForm: React.FC<SettingsFormProps> = ({

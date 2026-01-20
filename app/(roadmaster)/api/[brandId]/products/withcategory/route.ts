@@ -12,7 +12,7 @@ export async function GET(req: Request) {
       }
     });
 
-    const allCategory = await prismadb.allCategory.findMany({})
+    const allCategory = await prismadb.allcategory.findMany({})
 
     if (!product || product.length === 0) {
       return new NextResponse("Product not found", { status: 404 });

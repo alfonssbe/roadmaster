@@ -45,7 +45,7 @@ export async function POST(
         updatedAt
       } = item;
     
-      const allproductcategory = await prismadb.allProductCategory.create({
+      const allproductcategory = await prismadb.allproductcategory.create({
         data: {
           productId: params.productId,
           categoryId: id,
@@ -101,7 +101,7 @@ export async function GET(
       return new NextResponse("Brand id is required", { status: 400 });
     }
 
-    const allProductCategory = await prismadb.allProductCategory.findMany({
+    const allProductCategory = await prismadb.allproductcategory.findMany({
       where: {
         productId: params.productId
       }
@@ -142,7 +142,7 @@ export async function DELETE(
       return NextResponse.json("unauthorized");
     }
 
-    const allproductcategory = await prismadb.allProductCategory.deleteMany({
+    const allproductcategory = await prismadb.allproductcategory.deleteMany({
       where: {
         productId: params.productId
       }
@@ -200,7 +200,7 @@ export async function PATCH(
       return NextResponse.json("unauthorized");
     }
 
-    const deleteOldCategories = await prismadb.allProductCategory.deleteMany({
+    const deleteOldCategories = await prismadb.allproductcategory.deleteMany({
       where: {
         productId: params.productId
       }
@@ -219,7 +219,7 @@ export async function PATCH(
         createdAt,
         updatedAt
       } = item;
-      const allproductcategory = await prismadb.allProductCategory.create({
+      const allproductcategory = await prismadb.allproductcategory.create({
         data: {
           productId: params.productId,
           categoryId: id,

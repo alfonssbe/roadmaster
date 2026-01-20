@@ -8,28 +8,28 @@ const AllProductCategoryPage = async (
   }
 ) => {
   const params = await props.params;
-  const categories = await prismadb.allCategory.findMany({
+  const categories = await prismadb.allcategory.findMany({
     where: {
       type: "Category",
       brandId : params.brandId
     },
   });
 
-  const subcategories = await prismadb.allCategory.findMany({
+  const subcategories = await prismadb.allcategory.findMany({
     where: {
       type: "Sub Category",
       brandId : params.brandId
     },
   });
 
-  const subsubcategories = await prismadb.allCategory.findMany({
+  const subsubcategories = await prismadb.allcategory.findMany({
     where: {
       type: "Sub Sub Category",
       brandId : params.brandId
     },
   });
 
-  const allproductcategories = await prismadb.allProductCategory.findMany({
+  const allproductcategories = await prismadb.allproductcategory.findMany({
     where: {
       productId: params.productId,
     },
