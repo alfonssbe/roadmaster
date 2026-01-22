@@ -5,10 +5,10 @@ import { checkBearerAPI, getSession } from '@/app/admin/actions';
 const slugify = (str: string): string => {
   const normalizedStr = str.replace(/["“”‟″‶〃״˝ʺ˶ˮײ]/g, "'");
   const strAfterQuote = normalizedStr.includes("'") ? normalizedStr.split("'")[1] : normalizedStr;
-  const strBeforeSlash = strAfterQuote.includes('/') ? strAfterQuote.split('/')[0] : strAfterQuote;
-  return strBeforeSlash.toLowerCase()
+  const strBeforeSlash = strAfterQuote?.includes('/') ? strAfterQuote.split('/')[0] : strAfterQuote;
+  return strBeforeSlash?.toLowerCase()
                          .replace(/[^a-z0-9]+/g, '-')
-                         .replace(/(^-|-$)+/g, '');
+                         .replace(/(^-|-$)+/g, '') ?? '';
 };
 
 export async function POST(req: Request) {

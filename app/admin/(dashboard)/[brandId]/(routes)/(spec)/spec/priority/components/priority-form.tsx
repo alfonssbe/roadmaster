@@ -115,7 +115,7 @@ export const PriorityForm: React.FC<PriorityFormProps> = ({
 
     // Sort each group by priority
     Object.keys(grouped).forEach((key) => {
-      grouped[key].sort((a, b) => Number(a.priority) - Number(b.priority));
+      grouped[key]?.sort((a, b) => Number(a.priority) - Number(b.priority));
     });
 
 
@@ -141,6 +141,7 @@ export const PriorityForm: React.FC<PriorityFormProps> = ({
 
     const updatedGroup = [...currentGroup];
     const [movedItem] = updatedGroup.splice(fromIndex, 1);
+    if (!movedItem) return;
     updatedGroup.splice(dropIndex, 0, movedItem);
 
     // Update priorities

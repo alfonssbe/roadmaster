@@ -22,12 +22,14 @@ function groupByMonth(data: { year: string, month: string, date: string, users: 
     for (const key of Array.from(map.keys())) {
         const users = map.get(key) || 0
         const [year, month] = key.split("-")
-        const formattedDate = new Date(+year, +month - 1).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-        })
+        if(year && month) {
+            const formattedDate = new Date(+year, +month - 1).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+            })
 
-        result.push({ date: formattedDate, users })
+            result.push({ date: formattedDate, users })
+        }
     }
 
     return result.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).slice(result.length - counterMonth, result.length)

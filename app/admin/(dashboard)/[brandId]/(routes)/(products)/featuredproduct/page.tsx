@@ -34,7 +34,7 @@ const FeaturedProductPage = async (
   const formattedFeaturedProduct: FeaturedProductColumn[] = featured.map((item) => ({
     id: item.id,
     name: item.name,
-    value: item.featured_img.length!=0?item.featured_img[0].url:"",
+    value: item.featured_img.length!=0 && item.featured_img[0] ?item.featured_img[0].url:"",
     updatedAt: format(item.updatedAt, 'MMMM do, yyyy'),
     updatedBy: item.updatedBy
   }));

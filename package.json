@@ -99,5 +99,10 @@
   "overrides": {
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "not op_mini all"
+  ]
 }

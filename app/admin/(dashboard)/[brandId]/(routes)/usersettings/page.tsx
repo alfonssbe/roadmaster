@@ -55,7 +55,7 @@ const UserSettingPage = async () => {
     id: oneUser.id,
     name: oneUser.name,
     username: oneUser.email,
-    privilages: allNames[index],
+    privilages: allNames[index] ?? '',
   }));
 
   return ( 

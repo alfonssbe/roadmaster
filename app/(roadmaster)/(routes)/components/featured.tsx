@@ -39,10 +39,10 @@ export default function Featured() {
         const [tempProd, tempAllCat]: [ProductWithRelations[], allcategory[]] = await getAllProductsAndCategory(API)
         setAllCat(tempAllCat)
         setAllProd(tempProd)
-        setActiveCategory(tempAllCat[0])
+        setActiveCategory(tempAllCat[0] ?? null)
         const tempFirst: ProductWithRelations[] = []
         tempProd.forEach((val: ProductWithRelations) => {
-          const found = val.allCat.some((cat: allproductcategory) => cat.categoryId === tempAllCat[0].id)
+          const found = val.allCat.some((cat: allproductcategory) => cat.categoryId === tempAllCat[0]?.id)
           if (found) tempFirst.push(val)
         })
         setAllSelectedProd(tempFirst)

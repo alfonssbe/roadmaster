@@ -10,11 +10,11 @@ import { revalidatePath } from 'next/cache';
 const slugify = (str: string): string => {
   const normalizedStr = str.replace(/["“”‟″‶〃״˝ʺ˶ˮײ]/g, "'");
   const strAfterQuote = normalizedStr.includes("'") ? normalizedStr.split("'")[1] : normalizedStr;
-  const strBeforeSlash = strAfterQuote.includes('/') ? strAfterQuote.split('/')[0] : strAfterQuote;
-  const strWithoutSatori = strBeforeSlash.replace(/SATORI/gi, '');
-  return strWithoutSatori.toLowerCase()
+  const strBeforeSlash = strAfterQuote?.includes('/') ? strAfterQuote.split('/')[0] : strAfterQuote;
+  const strWithoutSatori = strBeforeSlash?.replace(/SATORI/gi, '');
+  return strWithoutSatori?.toLowerCase()
                          .replace(/[^a-z0-9]+/g, '-')
-                         .replace(/(^-|-$)+/g, '');
+                         .replace(/(^-|-$)+/g, '') ?? '';
 };
 
 export async function GET(

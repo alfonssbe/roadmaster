@@ -33,7 +33,7 @@ const NewsPage = async (
   const formattedNews: NewsColumn[] = allnews.map((item) => ({
     id: item.id,
     name: item.title,
-    value: item.news_img.length!=0?item.news_img[0].url:"",
+    value: item.news_img.length!=0 && item.news_img[0] ? item.news_img[0].url : "",
     eventDate: format(item.event_date, 'MMMM do, yyyy'),
     updatedBy: item.updatedBy
   }));

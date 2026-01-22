@@ -152,16 +152,18 @@ export const SpecForm: React.FC<SBAudienceCompressionDimensionSpecFormProps> = (
     if (!groups.length) errors.push("At least one specification parent group is required.")
     for (let i = 0; i < groups.length; i++) {
       const g = groups[i];
-      if (!g.dynamicspecificationParentId) {
-        errors.push(`Group ${i + 1}: Dynamic Specification Parent is required.`)
+      if (g){
+        if (!g.dynamicspecificationParentId) {
+          errors.push(`Group ${i + 1}: Dynamic Specification Parent is required.`)
+        }
+        if (!g.specs.length) {
+          errors.push(`Group ${i + 1}: Add at least one Dynamic Specification.`)
+        }
+        g.specs.forEach((r, j) => {
+          if (!r.dynamicspecificationId) errors.push(`Group ${i + 1}, Spec ${j + 1}: Specification is required.`)
+          if (!r.value) errors.push(`Group ${i + 1}, Spec ${j + 1}: Value is required.`)
+        })
       }
-      if (!g.specs.length) {
-        errors.push(`Group ${i + 1}: Add at least one Dynamic Specification.`)
-      }
-      g.specs.forEach((r, j) => {
-        if (!r.dynamicspecificationId) errors.push(`Group ${i + 1}, Spec ${j + 1}: Specification is required.`)
-        if (!r.value) errors.push(`Group ${i + 1}, Spec ${j + 1}: Value is required.`)
-      })
     }
     return errors
   }
