@@ -4,7 +4,9 @@ import { ProductWithRelations } from "../types";
 
 const getAllProductsAndCategory = async (api: string): Promise<[ProductWithRelations[], allcategory[]]> => {
 
-  const response = await fetch(api);
+  const response = await fetch(api, {
+    next: { revalidate: 30 }
+  });
   if (!response.ok) {
     redirect('/');
     // throw new Error(`Failed to fetch products by ${subsubcategory}`);
